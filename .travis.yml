@@ -8,8 +8,6 @@ deploy:
     branch: master
   skip_cleanup: true
   bucket: pebblecode-cruk
-  script:
-  - npm run build
   access_key_id:
     secure: A4fd9Nb4aHLrH3aa53AS2/33wnh74FimB711Yzt9heIFlQYsQuwvJI6T78Ad0VVDLPNFCLAv5bxvlGYq+0ULzdlbT+3alWd17LwrPioZf4bfsBBtLkow6ZuHDn8d65eGSYHh++3utoUrd2TMw2RppeqWx63LPgPoPyOHKxq/EGioRSP+mVILolKad5nmBa3KGnVKJtTaSqWJlVQd1hYYaMGBFy2/iYrdjriASOtrZpVNJLoJDFjeaFM/uHTI/rO4OcSCNcDdyLAOGqm81Buug4TKcRo3eaC+ySGX6stfeskZ2AmSLhyaLGaToIUT/MB3IevuZFz6Igx+WdtAOLXHax3zhMnh1vw9FKAAfip6ioupH+4CSa/s0YzJKWYL2CSrifpUwfVkw0V5kIDDxLLQbUyDvBIHKXXDBNSYJonyEMxcZlB0mJc0/Ul073d/fuSJXkjwCkPfwBeKc+/eLwbPlWMkhrUwA0H181kRQb4M9V2o1SHj7o2sflB1nsI2rcO/yVkZESejT2eHDGsdpzbWzuwOcO2Twui3YeCCwXUAegOQ5nIVoA8zA+C8QjwL3m/1gNx9VTchUX0JOyXBcZJb48sAS8ZUGJv5IXshzP+meSc3rF6Mbh8LdwXbs4rmw21zUxb5Mvy9KjTa2BDNJ8uuspeBVqjmigXuUKEjR7gPmC8=
   secret_access_key:
@@ -21,3 +19,5 @@ addons:
     packages:
     - gcc-4.8
     - g++-4.8
+script:
+  - npm run build

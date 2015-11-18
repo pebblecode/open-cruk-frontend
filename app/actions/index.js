@@ -5,19 +5,17 @@ function groupStatus(statuses, statusType) {
   return statuses.filter(worker => worker.status.statusType === statusType);
 }
 
-const INTERVAL = 10 * 1000;
-
 export const LOAD_USERS = 'LOAD_USERS';
 export const LOAD_USERS_SUCCESS = 'LOAD_USERS_SUCCESS';
-export const RECEIVE_USERS = 'RECEIVE_USERS';
-export const LOAD_USERS_FAIL = 'LOAD_USERS_FAIL';
-export const REQUEST_LOAD_USERS = 'REQUEST_LOAD_USERS';
+export const RECEIVE_MAP = 'RECEIVE_MAP';
+export const LOAD_MAP_FAIL = 'LOAD_MAP_FAIL';
+export const REQUEST_MAP = 'REQUEST_MAP';
 export const REQUEST_INTERVAL_START = 'REQUEST_INTERVAL_START';
 
-export function getLatestStatuses(dispatch) {
+export function getMap(dispatch) {
 
   dispatch({
-    type: REQUEST_LOAD_USERS
+    type: REQUEST_MAP
   });
 
   return WebAPI.latestStatus()
@@ -31,29 +29,15 @@ export function getLatestStatuses(dispatch) {
       groupStatus(statuses, 'Sick').forEach(w => statusesGrouped.push(w));
 
       dispatch({
-        type: RECEIVE_USERS,
+        type: RECEIVE_MAP,
         users: statusesGrouped
       });
 
     })
     .catch((err) => {
       dispatch({
-        type: LOAD_USERS_FAIL,
+        type: LOAD_MAP_FAIL,
         error: err
       });
     });
-}
-
-export function fetchStatusesOnInterval(dispatch) {
-
-  const ref = setInterval(() => {
-    getLatestStatuses(dispatch);
-  }, INTERVAL);
-
-  dispatch({
-    type: REQUEST_INTERVAL_START,
-    intervalRef: ref
-  });
-
-  return getLatestStatuses(dispatch);
 }

@@ -12,8 +12,18 @@ function JSONResponse(response) {
 
 export default {
 
-  latestStatus() {
-    return fetch(`${API_URL}/workers`)
+  getMap() {
+    return fetch(`${API_URL}/api/ccd/map`)
+      .then(JSONResponse);
+  },
+
+  getCcd(ccdCode) {
+    return fetch(`${API_URL}/api/ccd/${ccdCode}`)
+      .then(JSONResponse);
+  },
+
+  getMoreInfoFor(ccdCode) {
+    return fetch(`${API_URL}/api/ccd/${ccdCode}/full`)
       .then(JSONResponse);
   }
 
