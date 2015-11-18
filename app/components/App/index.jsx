@@ -2,7 +2,7 @@
 
 import {connect} from 'react-redux';
 import React, {Component, PropTypes} from 'react';
-import Status from '../Status';
+import HexMap from '../HexMap';
 
 import {fetchStatusesOnInterval} from '../../actions';
 
@@ -13,20 +13,10 @@ class App extends Component {
     dispatch(fetchStatusesOnInterval);
   }
 
-  // RENDER
-  _renderStatuses() {
-
-    return this.props.users.map((status) => {
-      return <Status {...status} key={status.email} />;
-    });
-  }
-
   render() {
     return (
       <div className={'page__home'}>
-        <ul className={'grid'}>
-          {this._renderStatuses()}
-        </ul>
+        <HexMap/>
       </div>
     );
   }

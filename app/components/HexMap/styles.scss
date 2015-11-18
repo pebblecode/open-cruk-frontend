@@ -1,0 +1,190 @@
+.map {
+  width: 2000px;
+  height: 1000px;
+  margin-left: 100px;
+  font-size: 70%;
+}
+
+.hex {
+  float: left;
+  margin-right: -9px;
+  margin-bottom: -17px;
+}
+
+.hex .left {
+  float: left;
+  width: 0;
+  border-top: 17px solid transparent;
+  border-bottom: 17px solid transparent;
+}
+
+.hex .middle {
+  float: left;
+  width: 20px;
+  height: 35px;
+}
+
+.hex .right {
+  float: left;
+  width: 0;
+  border-top: 17px solid transparent;
+  border-bottom: 17px solid transparent;
+}
+
+.hex-row {
+  clear: left;
+}
+
+.hex.even {
+  margin-top: 18px;
+}
+
+.hex .left {
+  border-right-width: 10px;
+  border-right-style: solid;
+}
+
+.hex .right {
+  border-left-width: 10px;
+  border-left-style: solid;
+}
+
+.hex.status-1 {
+  .left {
+    border-right-color: #ffffcc;
+  }
+
+  .middle {
+    background: #ffffcc;
+  }
+
+  .right {
+    border-left-color: #ffffcc;
+  }
+}
+
+.hex.status-2 {
+  .left {
+    border-right-color: #ffeda0;
+  }
+
+  .middle {
+    background: #ffeda0;
+  }
+
+  .right {
+    border-left-color: #ffeda0;
+  }
+}
+
+.hex.status-3 {
+  .left {
+    border-right-color: #fed976;
+  }
+
+  .middle {
+    background: #fed976;
+  }
+
+  .right {
+    border-left-color: #fed976;
+  }
+}
+
+.hex.status-4 {
+  .left {
+    border-right-color: #feb24c;
+  }
+
+  .middle {
+    background: #feb24c;
+  }
+
+  .right {
+    border-left-color: #feb24c;
+  }
+}
+
+.hex.status-5 {
+  .left {
+    border-right-color: #fd8d3c;
+  }
+
+  .middle {
+    background: #fd8d3c;
+  }
+
+  .right {
+    border-left-color: #fd8d3c;
+  }
+}
+
+.hex.status-6 {
+  .left {
+    border-right-color: #fc4e2a;
+  }
+
+  .middle {
+    background: #fc4e2a;
+  }
+
+  .right {
+    border-left-color: #fc4e2a;
+  }
+}
+
+.hex.status-7 {
+  .left {
+    border-right-color: #e31a1c;
+  }
+
+  .middle {
+    background: #e31a1c;
+  }
+
+  .right {
+    border-left-color: #e31a1c;
+  }
+}
+
+.hex.status-8 {
+  .left {
+    border-right-color: #bd0026;
+  }
+
+  .middle {
+    background: #bd0026;
+  }
+
+  .right {
+    border-left-color: #bd0026;
+  }
+}
+
+.hex.status-9 {
+  .left {
+    border-right-color: #800026;
+  }
+
+  .middle {
+    background: #800026;
+  }
+
+  .right {
+    border-left-color: #800026;
+  }
+}
+
+.hex.status-0 {
+  .left {
+    border-right-color: transparent;
+  }
+
+  .middle {
+    background: transparent;
+  }
+
+  .right {
+    border-left-color: transparent;
+  }
+}
