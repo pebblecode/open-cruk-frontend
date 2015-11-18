@@ -2,24 +2,46 @@
   width: 75%;
   float: left;
   overflow: hidden;
+  transition: 0.2s;
 }
 
 .HexMap-info-container {
   width: 25%;
   float: left;
+
+}
+
+.HexMap h1 {
+  margin: 0;
+  padding: 40px 30px 10px;
+  letter-spacing: -2px;
+  font-size: 38px;
 }
 
 .map {
-  width: 2000px;
-  height: 1000px;
-  margin-left: 100px;
+  width: auto;
+  height: auto;
+  margin: 10px auto 50px;
   font-size: 70%;
+  display: table;
+}
+
+.hex:hover {
+  opacity: 0.8;
+  cursor: pointer;
 }
 
 .hex {
   float: left;
   margin-right: -9px;
   margin-bottom: -17px;
+  transition: 0.2s;
+
+  span {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 }
 
 .hex .left {
@@ -33,6 +55,8 @@
   float: left;
   width: 20px;
   height: 35px;
+  position: relative;
+  color: white;
 }
 
 .hex .right {
@@ -67,6 +91,7 @@
 
   .middle {
     background: #ffffcc;
+    color: #3a4153;
   }
 
   .right {
@@ -81,6 +106,7 @@
 
   .middle {
     background: #ffeda0;
+    color: #3a4153;
   }
 
   .right {
@@ -95,6 +121,7 @@
 
   .middle {
     background: #fed976;
+    color: #3a4153;
   }
 
   .right {
@@ -193,6 +220,7 @@
 
   .middle {
     background: transparent;
+    color: #3a4153;
   }
 
   .right {

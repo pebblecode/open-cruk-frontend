@@ -24,7 +24,7 @@ class App extends Component {
 
 App.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  users: PropTypes.array.isRequired,
+  points: PropTypes.array.isRequired,
   isFetching: PropTypes.bool.isRequired
 };
 

@@ -19,18 +19,12 @@ export function getMap(dispatch) {
   });
 
   return WebAPI.latestStatus()
-    .then((statuses) => {
+    .then((points) => {
 
-      const statusesGrouped = [];
-
-      groupStatus(statuses, 'InOffice').forEach(w => statusesGrouped.push(w));
-      groupStatus(statuses, 'OutOfOffice').forEach(w => statusesGrouped.push(w));
-      groupStatus(statuses, 'Holiday').forEach(w => statusesGrouped.push(w));
-      groupStatus(statuses, 'Sick').forEach(w => statusesGrouped.push(w));
-
+      
       dispatch({
         type: RECEIVE_MAP,
-        users: statusesGrouped
+        points: points
       });
 
     })
