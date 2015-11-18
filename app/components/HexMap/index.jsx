@@ -1,10 +1,30 @@
-import React, { PropTypes, Component } from 'react';
-import styles from './styles.scss';
+import InfoPanel from './InfoPanel';
+import React, {Component } from 'react';
+
+require('./styles.scss');
 
 
 class HexMap extends Component {
 
-  getCoordsCcgMap () {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedCCG: null
+    };
+  }
+
+  onClickHexagon(ccg) {
+    this.setState({'selectedCCG': ccg}); // move to global state
+  }
+
+  getCcg(map, row, col) {
+    if (row in map && col in map[row]) {
+      return map[row][col];
+    }
+    return null;
+  }
+
+  getCoordsCcgMap() {
     return {
       1: { 5: '10L' },
       10: { 10: '08K', 12: '08A', 14: '09J', 2: '11T', 4: '10W', 6: '08P', 8: '08R' },
@@ -48,14 +68,7 @@ class HexMap extends Component {
     };
   }
 
-  getCcg (map, row, col) {
-    if (row in map && col in map[row]) {
-      return map[row][col];
-    }
-    return null;
-  }
-
-  getStatus (ccg) {
+  getStatus(ccg) {
     if (ccg === null || ccg === undefined) {
       return 0;
     } else if (ccg.indexOf('G') > -1) {
@@ -74,9 +87,9 @@ class HexMap extends Component {
       return 7;
     } else if (ccg.startsWith('1')) {
       return 8;
-    } else {
-      return 9;
     }
+
+    return 9;
   }
 
   render() {
@@ -84,13 +97,14 @@ class HexMap extends Component {
     const height = 22;
     const hexagons = [];
     const coordsCcgMap = this.getCoordsCcgMap();
-    for (var y = height - 1; y >= 0; y--) {
+
+    for (let y = height - 1; y >= 0; y--) {
       const rowContents = [];
-      for (var x = 0; x < width; x++) {
+      for (let x = 0; x < width; x++) {
         const row =
           x % 2 === 0
           ? (2 * y) + 1
-          : (2 * y)
+          : (2 * y);
         const col = x + 1;
         const ccg = this.getCcg(coordsCcgMap, row, col);
         const statusClass = 'status-' + this.getStatus(ccg);
@@ -101,29 +115,32 @@ class HexMap extends Component {
         const hexClass = 'hex' + ' ' + statusClass + ' ' + parityClass;
         const key = y + '-' + x;
         const hexagon =
-          <div className={hexClass} key={key}>
-            <div className='left'></div>
-            <div className='middle'>
+          (<div className={hexClass} key={key}>
+            <div className={'left'}></div>
+            <div className={'middle'}>
               <span>{ccg}</span>
             </div>
-            <div className='right'></div>
-          </div>;
+            <div className={'right'}></div>
+          </div>);
         rowContents.push(hexagon);
       }
       const rowKey = 'row-' + y;
       const row =
-        <div className='hex-row' key={rowKey}>
+        (<div className={'hex-row'} key={rowKey}>
           {rowContents}
-        </div>;
+        </div>);
       hexagons.push(row);
     }
 
     return (
-      <div className='HexMap'>
-        <div className='HexMap-container'>
-          <div className='map'>
+      <div className="HexMap">
+        <div className="HexMap-container">
+          <div className="map">
             {hexagons}
           </div>
+        </div>
+        <div className="HexMap-info-container">
+          <InfoPanel ccg={this.state.selectedCCG}/>
         </div>
       </div>
     );

@@ -1,3 +1,14 @@
+.HexMap-container {
+  width: 75%;
+  float: left;
+  overflow: hidden;
+}
+
+.HexMap-info-container {
+  width: 25%;
+  float: left;
+}
+
 .map {
   width: 2000px;
   height: 1000px;
