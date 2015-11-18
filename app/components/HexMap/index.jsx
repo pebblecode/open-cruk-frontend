@@ -115,7 +115,7 @@ class HexMap extends Component {
         const hexClass = 'hex' + ' ' + statusClass + ' ' + parityClass;
         const key = y + '-' + x;
         const hexagon =
-          (<div className={hexClass} key={key}>
+          (<div className={hexClass} key={key} onClick={this.onClickHexagon.bind(this, ccg)}>
             <div className={'left'}></div>
             <div className={'middle'}>
               <span>{ccg}</span>
