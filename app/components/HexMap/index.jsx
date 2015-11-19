@@ -2,8 +2,7 @@ import React, {Component, PropTypes } from 'react';
 import {connect} from 'react-redux';
 
 import InfoPanel from './InfoPanel';
-import {getCcg} from '../../actions';
-
+import {getCcg, highlightPoint} from '../../actions';
 
 require('./styles.scss');
 
@@ -11,10 +10,19 @@ require('./styles.scss');
 class HexMap extends Component {
 
   onClickHexagon(ccg) {
+    /* eslint "react/prop-types": 0*/
     const {dispatch, getState} = this.props;
+    if (ccg) {
+      dispatch(getCcg(ccg, getState));
+    }
+  }
 
-    dispatch(getCcg(ccg, getState));
-    // this.setState({'selectedCCG': ccg}); // move to global state
+  onMouseEnterHexagon(ccg) {
+    const {dispatch} = this.props;
+
+    if (ccg) {
+      dispatch(highlightPoint(this.getCcgData(ccg)));
+    }
   }
 
   getCcg(map, row, col) {
@@ -70,9 +78,9 @@ class HexMap extends Component {
 
   getStatus(ccg) {
     if (ccg !== null && ccg !== undefined) {
-      const ccgInfo = this.props.points.filter(p => p.ccg === ccg);
-      if (ccgInfo.length > 0) {
-        const mortalityRate = ccgInfo[0].deaths / ccgInfo[0].incidences;
+      const ccgInfo = this.getCcgData(ccg);
+      if (ccgInfo) {
+        const mortalityRate = ccgInfo.deaths / ccgInfo.incidences;
         if (mortalityRate < 0.433) {
           return 1;
         } else if (mortalityRate < 0.445) {
@@ -98,6 +106,10 @@ class HexMap extends Component {
     return 0;
   }
 
+  getCcgData(ccg) {
+    return this.props.points.filter(p => p.ccg === ccg)[0];
+  }
+
   render() {
     const width = 18;
     const height = 22;
@@ -120,7 +132,9 @@ class HexMap extends Component {
         const hexClass = 'hex' + ' ' + statusClass + ' ' + parityClass;
         const key = y + '-' + x;
         const hexagon =
-          (<div className={hexClass} key={key} onClick={this.onClickHexagon.bind(this, ccg)}>
+          (<div className={hexClass} key={key}
+            onClick={this.onClickHexagon.bind(this, ccg)}
+            onMouseEnter={this.onMouseEnterHexagon.bind(this, ccg)}>
             <div className={'left'}></div>
             <div className={'middle'}>
             </div>
@@ -144,7 +158,7 @@ class HexMap extends Component {
           </div>
         </div>
         <div className={'HexMap-info-container'}>
-          <InfoPanel ccgCodeSelected={this.props.ccgCodeSelected} ccgSelected={this.props.ccgSelected}/>
+          <InfoPanel/>
         </div>
       </div>
     );
@@ -153,8 +167,6 @@ class HexMap extends Component {
 }
 
 HexMap.propTypes = {
-  dispatch: PropTypes.func.isRequired,
-  getState: PropTypes.func.isRequired,
   ccgCodeSelected: PropTypes.string,
   ccgSelected: PropTypes.object,
   points: PropTypes.array.isRequired

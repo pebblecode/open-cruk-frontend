@@ -3,6 +3,7 @@
 import {connect} from 'react-redux';
 import React, {Component, PropTypes} from 'react';
 import HexMap from '../HexMap';
+import HexHover from '../HexHover';
 
 import {getMap} from '../../actions';
 
@@ -18,6 +19,7 @@ class App extends Component {
       <div className={'page__home'}>
 
         <HexMap/>
+        <HexHover/>
         //Info panel should be here.
       </div>
     );

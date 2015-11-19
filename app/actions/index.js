@@ -10,6 +10,8 @@ export const REQUEST_MAP = 'REQUEST_MAP';
 export const REQUEST_INTERVAL_START = 'REQUEST_INTERVAL_START';
 export const REQUEST_CCG = 'REQUEST_CCG';
 export const RECEIVE_CCG = 'RECEIVE_CCG';
+export const POINT_HIGHLIGHTED = 'POINT_HIGHLIGHTED';
+
 
 export function getMap(dispatch) {
 
@@ -82,5 +84,15 @@ export function getCcg(ccgCode) {
         });
       });
     }
+  };
+}
+
+
+export function highlightPoint(point) {
+  return function _highlightPoint(dispatch) {
+    dispatch({
+      type: POINT_HIGHLIGHTED,
+      point
+    });
   };
 }
