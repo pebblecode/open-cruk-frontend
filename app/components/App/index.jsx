@@ -16,7 +16,14 @@ class App extends Component {
   render() {
     return (
       <div className={'page__home'}>
-        <HexMap points={this.props.points} dispatch={this.props.dispatch}/>
+
+        <HexMap
+          ccgSelected={this.props.ccgSelected}
+          ccgCodeSelected={this.props.ccgCodeSelected}
+          points={this.props.points}
+          dispatch={this.props.dispatch}
+          getState={this.props.getState}/>
+        //Info panel should be here.
       </div>
     );
   }
@@ -24,17 +31,22 @@ class App extends Component {
 
 App.propTypes = {
   dispatch: PropTypes.func.isRequired,
+  getState: PropTypes.func.isRequired,
   points: PropTypes.array.isRequired,
-  isFetching: PropTypes.bool.isRequired
+  isFetching: PropTypes.bool.isRequired,
+  ccgSelected: PropTypes.object,
+  ccgCodeSelected: PropTypes.string
 };
 
 function mapStateToProps(state) {
-  const {points, isFetching, mapLoadFail} = state;
+  const {points, isFetching, mapLoadFail, ccgSelected, ccgCodeSelected} = state;
 
   return {
     points,
     isFetching,
-    mapLoadFail
+    mapLoadFail,
+    ccgSelected,
+    ccgCodeSelected
   };
 }
 

@@ -18,7 +18,7 @@ export default {
       .then(JSONResponse);
   },
 
-  getccg(ccgCode) {
+  getCcg(ccgCode) {
     return fetch(`${API_URL}/api/ccg/${ccgCode}`)
       .then(JSONResponse);
   },
