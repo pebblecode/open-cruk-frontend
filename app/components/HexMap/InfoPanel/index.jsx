@@ -3,6 +3,10 @@ import {connect} from 'react-redux';
 
 require('./styles.scss');
 
+function addCommasTo(number) {
+  return number.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 class InfoPanel extends Component {
 
   render() {
@@ -25,11 +29,11 @@ class InfoPanel extends Component {
           <h2>Is cancer diagnosed early enough in {this.props.ccgSelected.name}?</h2>
           <div className='topFiguresPanel'>
             <div className='topFigureBox'>
-              <div className='topFigure'>{this.props.ccgSelected.incidences}</div>
+              <div className='topFigure'>{addCommasTo(this.props.ccgSelected.incidences)}</div>
               <span className='topFigureLabel'>cancer cases per year</span>
             </div>
             <div className='topFigureBox'>
-              <div className='topFigure'>{this.props.ccgSelected.deaths}</div>
+              <div className='topFigure'>{addCommasTo(this.props.ccgSelected.deaths)}</div>
               <span className='topFigureLabel'>cancer deaths per year</span>
             </div>
           </div>
