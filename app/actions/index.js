@@ -35,9 +35,9 @@ export function getMap(dispatch) {
 }
 
 export function getCcgFromCache(state, ccg) {
-  const ccgData = state.points.filter(c => c.ccg === ccg);
+  const point = state.points.filter(c => c.ccg === ccg)[0];
 
-  return ccgData[0];
+  return point.info;
 }
 
 export function getCcg(ccgCode) {
@@ -48,12 +48,12 @@ export function getCcg(ccgCode) {
       ccgCodeSelected: ccgCode
     });
 
-    const cachedCcg = getCcgFromCache(getState(), ccgCode);
-    if (cachedCcg) {
+    const cachedCcgInfo = getCcgFromCache(getState(), ccgCode);
+    if (cachedCcgInfo) {
 
       dispatch({
         type: RECEIVE_CCG,
-        ccgSelected: cachedCcg,
+        ccgSelected: cachedCcgInfo,
         ccgCodeSelected: ccgCode
       });
 

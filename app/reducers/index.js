@@ -43,10 +43,16 @@ export default function usersReducer(state = {
       });
 
     case RECEIVE_CCG:
+
+      const point = state.points.filter(p => p.ccg === state.ccgCodeSelected);
+
+      point.info = action.ccg;
+
       return Object.assign({}, state, {
         isFetching: false,
         ccgSelected: action.ccg
       });
+
     case LOAD_CCG_FAIL:
       return Object.assign({}, state, {
         isFetching: false,
