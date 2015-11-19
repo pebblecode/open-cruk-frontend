@@ -12,13 +12,15 @@ export default function usersReducer(state = {
     case REQUEST_MAP:
 
       return Object.assign({}, state, {
+        isFetching: false,
         intervalRef: action.intervalRef
       });
 
     case RECEIVE_MAP:
 
       return Object.assign({}, state, {
-        isFetching: true,
+        isFetching: false,
+        points: action.points,
         didInvalidate: false
       });
 
