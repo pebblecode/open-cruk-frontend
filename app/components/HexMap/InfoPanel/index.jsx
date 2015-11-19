@@ -7,13 +7,12 @@ class InfoPanel extends Component {
 
     let infoContents;
 
-    if (!this.props.ccg) {
+    if (this.props.ccgSelected) {
       infoContents = (
-        <p>Info Goes Here</p>
-      );
-    } else {
-      infoContents = (
-        <p>{this.props.ccg}</p>
+        <div>
+        <p>{this.props.ccgCodeSelected}</p>
+        <p> put more info here. about ccg </p>
+        </div>
       );
     }
 
@@ -27,7 +26,8 @@ class InfoPanel extends Component {
 }
 
 InfoPanel.propTypes = {
-  ccg: PropTypes.string
+  ccgCodeSelected: PropTypes.string,
+  ccgSelected: PropTypes.object
 };
 
 export default InfoPanel;

@@ -16,6 +16,6 @@ const store = configureStore();
 
 render(
   <Provider store={store}>
-    <App/>
+    <App getState={store.getState}/>
   </Provider>,
   document.getElementById('app'));

@@ -8,9 +8,9 @@ require('./styles.scss');
 class HexMap extends Component {
 
   onClickHexagon(ccg) {
-    const {dispatch} = this.props;
+    const {dispatch, getState} = this.props;
 
-    dispatch(getCcg(ccg));
+    dispatch(getCcg(ccg, getState));
     // this.setState({'selectedCCG': ccg}); // move to global state
   }
 
@@ -136,7 +136,7 @@ class HexMap extends Component {
           </div>
         </div>
         <div className={'HexMap-info-container'}>
-          <InfoPanel ccg={this.props.selectedCCG}/>
+          <InfoPanel ccgCodeSelected={this.props.ccgCodeSelected} ccgSelected={this.props.ccgSelected}/>
         </div>
       </div>
     );
@@ -146,6 +146,9 @@ class HexMap extends Component {
 
 HexMap.propTypes = {
   dispatch: PropTypes.func.isRequired,
+  getState: PropTypes.func.isRequired,
+  ccgCodeSelected: PropTypes.string,
+  ccgSelected: PropTypes.object
   // selectedCCG: PropTypes.bool
 };
 
