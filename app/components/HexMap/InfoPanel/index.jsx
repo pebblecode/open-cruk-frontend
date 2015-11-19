@@ -22,7 +22,7 @@ class InfoPanel extends Component {
       })
       infoContents = (
         <div>
-          <h2>{this.props.ccgSelected.name}</h2>
+          <h2>Is cancer diagnosed early enough in {this.props.ccgSelected.name}?</h2>
           <div className='topFiguresPanel'>
             <div className='topFigureBox'>
               <div className='topFigure'>{this.props.ccgSelected.incidences}</div>
