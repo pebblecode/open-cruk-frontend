@@ -7,7 +7,7 @@ class InfoPanel extends Component {
 
     let infoContents;
 
-    if( !this.props.ccg ) {
+    if (!this.props.ccg) {
       infoContents = (
         <p>Info Goes Here</p>
       );

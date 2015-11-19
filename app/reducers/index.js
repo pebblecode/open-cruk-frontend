@@ -1,32 +1,33 @@
-import {REQUEST_LOAD_USERS, RECEIVE_USERS, REQUEST_INTERVAL_START} from '../actions';
+import {LOAD_MAP_FAIL, RECEIVE_MAP, REQUEST_MAP} from '../actions';
 
 export default function usersReducer(state = {
   isFetching: false,
   didInvalidate: false,
-  users: [],
-  intervalRef: null
+  points: [],
+  intervalRef: null,
+  mapLoadFail: false
 }, action) {
 
   switch (action.type) {
-    case REQUEST_INTERVAL_START:
+    case REQUEST_MAP:
 
       return Object.assign({}, state, {
         intervalRef: action.intervalRef
       });
 
-    case REQUEST_LOAD_USERS:
+    case RECEIVE_MAP:
 
       return Object.assign({}, state, {
         isFetching: true,
         didInvalidate: false
       });
 
-    case RECEIVE_USERS:
+    case LOAD_MAP_FAIL:
 
       return Object.assign({}, state, {
         isFetching: false,
         didInvalidate: false,
-        users: action.users
+        mapLoadFail: true
       });
 
     default:

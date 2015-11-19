@@ -1,20 +1,17 @@
 import InfoPanel from './InfoPanel';
-import React, {Component } from 'react';
+import {getCcg} from '../../actions';
+import React, {Component, PropTypes } from 'react';
 
 require('./styles.scss');
 
 
 class HexMap extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedCCG: null
-    };
-  }
-
   onClickHexagon(ccg) {
-    this.setState({'selectedCCG': ccg}); // move to global state
+    const {dispatch} = this.props;
+
+    dispatch(getCcg(ccg));
+    // this.setState({'selectedCCG': ccg}); // move to global state
   }
 
   getCcg(map, row, col) {
@@ -97,7 +94,6 @@ class HexMap extends Component {
     const height = 22;
     const hexagons = [];
     const coordsCcgMap = this.getCoordsCcgMap();
-
     for (let y = height - 1; y >= 0; y--) {
       const rowContents = [];
       for (let x = 0; x < width; x++) {
@@ -115,7 +111,7 @@ class HexMap extends Component {
         const hexClass = 'hex' + ' ' + statusClass + ' ' + parityClass;
         const key = y + '-' + x;
         const hexagon =
-          (<div className={hexClass} key={key}>
+          (<div className={hexClass} key={key} onClick={this.onClickHexagon.bind(this, ccg)}>
             <div className={'left'}></div>
             <div className={'middle'}>
               <span>{ccg}</span>
@@ -125,28 +121,33 @@ class HexMap extends Component {
         rowContents.push(hexagon);
       }
       const rowKey = 'row-' + y;
-      const row =
-        (<div className={'hex-row'} key={rowKey}>
+      const row = (
+        <div className={'hex-row'} key={rowKey}>
           {rowContents}
         </div>);
       hexagons.push(row);
     }
 
     return (
-      <div className='HexMap'>
-        <div className='HexMap-container'>
-          <div className='map'>
+      <div className={'HexMap'}>
+        <div className={'HexMap-container'}>
+          <div className={'map'}>
             {hexagons}
           </div>
         </div>
-        <div className='HexMap-info-container'>
-          <InfoPanel ccg={this.state.selectedCCG}/>
+        <div className={'HexMap-info-container'}>
+          <InfoPanel ccg={this.props.selectedCCG}/>
         </div>
       </div>
     );
   }
 
 }
+
+HexMap.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  // selectedCCG: PropTypes.bool
+};
 
 export default HexMap;
 

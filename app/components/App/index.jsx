@@ -4,19 +4,19 @@ import {connect} from 'react-redux';
 import React, {Component, PropTypes} from 'react';
 import HexMap from '../HexMap';
 
-import {fetchStatusesOnInterval} from '../../actions';
+import {getMap} from '../../actions';
 
 class App extends Component {
 
   componentDidMount() {
     const { dispatch } = this.props;
-    dispatch(fetchStatusesOnInterval);
+    dispatch(getMap);
   }
 
   render() {
     return (
       <div className={'page__home'}>
-        <HexMap/>
+        <HexMap points={this.props.points} dispatch={this.props.dispatch}/>
       </div>
     );
   }
@@ -29,11 +29,12 @@ App.propTypes = {
 };
 
 function mapStateToProps(state) {
-  const {users, isFetching} = state;
+  const {points, isFetching, mapLoadFail} = state;
 
   return {
-    users,
-    isFetching
+    points,
+    isFetching,
+    mapLoadFail
   };
 }
 

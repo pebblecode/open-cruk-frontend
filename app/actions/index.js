@@ -1,10 +1,6 @@
 /* @flow */
 import WebAPI from '../util/WebAPI';
 
-function groupStatus(statuses, statusType) {
-  return statuses.filter(worker => worker.status.statusType === statusType);
-}
-
 export const LOAD_USERS = 'LOAD_USERS';
 export const LOAD_USERS_SUCCESS = 'LOAD_USERS_SUCCESS';
 export const RECEIVE_MAP = 'RECEIVE_MAP';
@@ -18,10 +14,9 @@ export function getMap(dispatch) {
     type: REQUEST_MAP
   });
 
-  return WebAPI.latestStatus()
+  return WebAPI.getMap()
     .then((points) => {
 
-      
       dispatch({
         type: RECEIVE_MAP,
         points: points

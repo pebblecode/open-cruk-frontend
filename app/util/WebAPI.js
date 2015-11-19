@@ -9,21 +9,22 @@ function JSONResponse(response) {
     throw new Error(e);
   }
 }
+const API_URL = 'https://pebblecode-cruk-api.herokuapp.com';
 
 export default {
 
   getMap() {
-    return fetch(`${API_URL}/api/ccd/map`)
+    return fetch(`${API_URL}/api/ccg/map`)
       .then(JSONResponse);
   },
 
-  getCcd(ccdCode) {
-    return fetch(`${API_URL}/api/ccd/${ccdCode}`)
+  getccg(ccgCode) {
+    return fetch(`${API_URL}/api/ccg/${ccgCode}`)
       .then(JSONResponse);
   },
 
-  getMoreInfoFor(ccdCode) {
-    return fetch(`${API_URL}/api/ccd/${ccdCode}/full`)
+  getMoreInfoFor(ccgCode) {
+    return fetch(`${API_URL}/api/ccg/${ccgCode}/full`)
       .then(JSONResponse);
   }
 
