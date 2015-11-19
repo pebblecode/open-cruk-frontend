@@ -76,34 +76,51 @@ class HexMap extends Component {
     };
   }
 
+  getLevelOf(value, ccgInfo){
+    const allCCGs = this.props.points;
+    const max = Object.keys(allCCGs).reduce((sum, key) => {
+      const d = allCCGs[key][value];
+      return d > sum ? d : sum;
+    });
+    // Discard decimals and return an integer from 1-9
+    const level = 1 + ~~(ccgInfo[value] / (max / 8));
+    return level;
+  }
+
+  getMortalityLevel(ccgInfo) {
+    const mortalityRate = ccgInfo.deaths / ccgInfo.incidences;
+    if (mortalityRate < 0.433) {
+      return 1;
+    } else if (mortalityRate < 0.445) {
+      return 2;
+    } else if (mortalityRate < 0.462) {
+      return 3;
+    } else if (mortalityRate < 0.479) {
+      return 4;
+    } else if (mortalityRate < 0.496) {
+      return 5;
+    } else if (mortalityRate < 0.513) {
+      return 6;
+    } else if (mortalityRate < 0.53) {
+      return 7;
+    } else if (mortalityRate < 0.547) {
+      return 8;
+    } else if (mortalityRate < 0.564) {
+      return 9;
+    }
+    return 0;
+  }
+
   getStatus(ccg) {
     if (ccg !== null && ccg !== undefined) {
       const ccgInfo = this.getCcgData(ccg);
       if (ccgInfo) {
-        const mortalityRate = ccgInfo.deaths / ccgInfo.incidences;
-        if (mortalityRate < 0.433) {
-          return 1;
-        } else if (mortalityRate < 0.445) {
-          return 2;
-        } else if (mortalityRate < 0.462) {
-          return 3;
-        } else if (mortalityRate < 0.479) {
-          return 4;
-        } else if (mortalityRate < 0.496) {
-          return 5;
-        } else if (mortalityRate < 0.513) {
-          return 6;
-        } else if (mortalityRate < 0.53) {
-          return 7;
-        } else if (mortalityRate < 0.547) {
-          return 8;
-        } else if (mortalityRate < 0.564) {
-          return 9;
+        if (this.props.dropdown) {
+          return this.getLevelOf(this.props.dropdown, ccgInfo);
         }
+        return this.getMortalityLevel(ccgInfo);
       }
     }
-
-    return 0;
   }
 
   getCcgData(ccg) {
