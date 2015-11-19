@@ -1,3 +1,5 @@
+$hex-scale: 1;
+
 .HexMap-container {
   width: 75%;
   float: left;
@@ -33,8 +35,8 @@
 
 .hex {
   float: left;
-  margin-right: -9px;
-  margin-bottom: -17px;
+  margin-right: -9px * $hex-scale;
+  margin-bottom: -17px * $hex-scale;
   transition: 0.2s;
 
   span {
@@ -47,14 +49,14 @@
 .hex .left {
   float: left;
   width: 0;
-  border-top: 17px solid transparent;
-  border-bottom: 17px solid transparent;
+  border-top: 17px * $hex-scale solid transparent;
+  border-bottom: 17px * $hex-scale solid transparent;
 }
 
 .hex .middle {
   float: left;
-  width: 20px;
-  height: 35px;
+  width: 20px * $hex-scale;
+  height: 35px * $hex-scale;
   position: relative;
   color: white;
 }
@@ -62,8 +64,8 @@
 .hex .right {
   float: left;
   width: 0;
-  border-top: 17px solid transparent;
-  border-bottom: 17px solid transparent;
+  border-top: 17px * $hex-scale solid transparent;
+  border-bottom: 17px * $hex-scale solid transparent;
 }
 
 .hex-row {
@@ -71,16 +73,16 @@
 }
 
 .hex.even {
-  margin-top: 18px;
+  margin-top: 18px * $hex-scale;
 }
 
 .hex .left {
-  border-right-width: 10px;
+  border-right-width: 10px  * $hex-scale;
   border-right-style: solid;
 }
 
 .hex .right {
-  border-left-width: 10px;
+  border-left-width: 10px * $hex-scale;
   border-left-style: solid;
 }
 
