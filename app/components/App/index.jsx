@@ -20,7 +20,6 @@ class App extends Component {
 
         <HexMap/>
         <HexHover/>
-        //Info panel should be here.
       </div>
     );
   }
