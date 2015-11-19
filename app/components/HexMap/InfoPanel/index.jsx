@@ -22,8 +22,9 @@ class InfoPanel extends Component {
           'rate': this.props.ccgSelected[i].toFixed(1),
           'comp': this.props.ccgSelected.averages[i],
           'avg': this.props.ccgSelected.englishAverages[i].toFixed(1)
-        }
-      })
+        };
+      });
+      
       infoContents = (
         <div>
           <h2>Is cancer diagnosed early enough in {this.props.ccgSelected.name}?</h2>
