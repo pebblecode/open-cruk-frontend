@@ -1,4 +1,6 @@
 import React, {Component, PropTypes} from 'react';
+import {connect} from 'react-redux';
+
 require('./styles.scss');
 
 class InfoPanel extends Component {
@@ -30,4 +32,13 @@ InfoPanel.propTypes = {
   ccgSelected: PropTypes.object
 };
 
-export default InfoPanel;
+function mapStateToProps(state) {
+  const {ccgSelected, ccgCodeSelected} = state;
+
+  return {
+    ccgSelected,
+    ccgCodeSelected
+  };
+}
+
+export default connect(mapStateToProps)(InfoPanel);

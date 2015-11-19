@@ -1,5 +1,11 @@
 import {
-  LOAD_MAP_FAIL, RECEIVE_MAP, REQUEST_MAP, REQUEST_CCG, RECEIVE_CCG, LOAD_CCG_FAIL
+  LOAD_MAP_FAIL,
+  RECEIVE_MAP,
+  REQUEST_MAP,
+  REQUEST_CCG,
+  RECEIVE_CCG,
+  LOAD_CCG_FAIL,
+  POINT_HIGHLIGHTED
 }
 from '../actions';
 
@@ -9,7 +15,8 @@ export default function usersReducer(state = {
   mapLoadFail: false,
   ccgLoadFail: false,
   ccgSelected: null,
-  ccgCodeSelected: ''
+  ccgCodeSelected: '',
+  pointHighlighted: null
 }, action) {
 
   switch (action.type) {
@@ -57,6 +64,11 @@ export default function usersReducer(state = {
       return Object.assign({}, state, {
         isFetching: false,
         ccgLoadFail: true
+      });
+
+    case POINT_HIGHLIGHTED:
+      return Object.assign({}, state, {
+        pointHighlighted: action.point
       });
 
     default:
