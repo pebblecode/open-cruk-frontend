@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 require('./styles.scss');
 
 function addCommasTo(number) {
-  return number.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return number.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
 class InfoPanel extends Component {
@@ -24,30 +24,30 @@ class InfoPanel extends Component {
           'avg': this.props.ccgSelected.englishAverages[i].toFixed(1)
         };
       });
-      
+
       infoContents = (
         <div>
           <h2>Is cancer diagnosed early enough in {this.props.ccgSelected.name}?</h2>
-          <div className='topFiguresPanel'>
-            <div className='topFigureBox'>
-              <div className='topFigure'>{addCommasTo(this.props.ccgSelected.incidences)}</div>
-              <span className='topFigureLabel'>cancer cases per year</span>
+          <div className={'topFiguresPanel'}>
+            <div className={'topFigureBox'}>
+              <div className={'topFigure'}>{addCommasTo(this.props.ccgSelected.incidences)}</div>
+              <span className={'topFigureLabel'}>cancer cases per year</span>
             </div>
-            <div className='topFigureBox'>
-              <div className='topFigure'>{addCommasTo(this.props.ccgSelected.deaths)}</div>
-              <span className='topFigureLabel'>cancer deaths per year</span>
+            <div className={'topFigureBox'}>
+              <div className={'topFigure'}>{addCommasTo(this.props.ccgSelected.deaths)}</div>
+              <span className={'topFigureLabel'}>cancer deaths per year</span>
             </div>
           </div>
           <h3>One-year survival rate</h3>
-          <p>One-year cancer survival in {ccg.oneYearSurvivalRate.name}, 
+          <p>One-year cancer survival in {ccg.oneYearSurvivalRate.name},
           ({ccg.oneYearSurvivalRate.rate}%) is {ccg.oneYearSurvivalRate.comp} the English average ({ccg.oneYearSurvivalRate.avg}%).
           </p>
           <h3>Speed of referral</h3>
-          <p>The proportion of patients in {ccg.specialist.name} that are urgently referred with suspected cancer and see a specialist within two weeks ({ccg.specialist.rate}%) 
+          <p>The proportion of patients in {ccg.specialist.name} that are urgently referred with suspected cancer and see a specialist within two weeks ({ccg.specialist.rate}%)
            is {ccg.specialist.comp} the English average ({ccg.specialist.avg}%).
           </p>
           <h3>Speed of treatment</h3>
-          <p>The proportion of patients in {ccg.firstTreatment.name} that receive their first treatment for cancer within 62 days of an urgent GP referral ({ccg.firstTreatment.rate}%) 
+          <p>The proportion of patients in {ccg.firstTreatment.name} that receive their first treatment for cancer within 62 days of an urgent GP referral ({ccg.firstTreatment.rate}%)
           is {ccg.firstTreatment.comp} the English average ({ccg.firstTreatment.avg}%).
           </p>
         </div>
@@ -55,7 +55,7 @@ class InfoPanel extends Component {
     }
 
     return (
-      <div className="InfoPanel">
+      <div className={'InfoPanel'}>
         {infoContents}
       </div>
     );
