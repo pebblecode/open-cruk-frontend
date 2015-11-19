@@ -131,8 +131,11 @@ class HexMap extends Component {
           : 'even';
         const hexClass = 'hex' + ' ' + statusClass + ' ' + parityClass;
         const key = y + '-' + x;
+
+        const isSelected = this.props.ccgCodeSelected === ccg ? ' selected' : '';
+        const className = hexClass + isSelected;
         const hexagon =
-          (<div className={hexClass} key={key}
+          (<div className={className} key={key}
             onClick={this.onClickHexagon.bind(this, ccg)}
             onMouseEnter={this.onMouseEnterHexagon.bind(this, ccg)}>
             <div className={'left'}></div>
