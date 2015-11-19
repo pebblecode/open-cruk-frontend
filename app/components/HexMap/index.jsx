@@ -120,7 +120,6 @@ class HexMap extends Component {
           (<div className={hexClass} key={key} onClick={this.onClickHexagon.bind(this, ccg)}>
             <div className={'left'}></div>
             <div className={'middle'}>
-              <span>{ccg}</span>
             </div>
             <div className={'right'}></div>
           </div>);
