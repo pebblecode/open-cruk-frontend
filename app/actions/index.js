@@ -55,8 +55,7 @@ export function getCcg(ccgCode) {
 
       dispatch({
         type: RECEIVE_CCG,
-        ccgSelected: cachedCcgInfo,
-        ccgCodeSelected: ccgCode
+        ccg: cachedCcgInfo
       });
 
     } else {

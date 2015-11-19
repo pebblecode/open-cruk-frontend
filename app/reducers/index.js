@@ -28,9 +28,9 @@ function findComparison(sample, average) {
 
 function calcAverages(ccg) {
   return {
-    'oneYearSurvivalRate': findComparison(ccg.oneYearSurvivalRate, ENGLISH_AVERAGES.oneYearSurvivalRate),
-    'specialist': findComparison(ccg.specialist, ENGLISH_AVERAGES.specialist),
-    'firstTreatment': findComparison(ccg.firstTreatment, ENGLISH_AVERAGES.firstTreatment)
+    oneYearSurvivalRate: findComparison(ccg.oneYearSurvivalRate, ENGLISH_AVERAGES.oneYearSurvivalRate),
+    specialist: findComparison(ccg.specialist, ENGLISH_AVERAGES.specialist),
+    firstTreatment: findComparison(ccg.firstTreatment, ENGLISH_AVERAGES.firstTreatment)
   };
 }
 
@@ -76,7 +76,7 @@ export default function usersReducer(state = {
 
     case RECEIVE_CCG:
 
-      const point = state.points.filter(p => p.ccg === state.ccgCodeSelected);
+      const point = state.points.filter(p => p.ccg === state.ccgCodeSelected)[0];
 
       point.info = action.ccg;
       point.info.averages = calcAverages(action.ccg);
