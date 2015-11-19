@@ -17,12 +17,7 @@ class App extends Component {
     return (
       <div className={'page__home'}>
 
-        <HexMap
-          ccgSelected={this.props.ccgSelected}
-          ccgCodeSelected={this.props.ccgCodeSelected}
-          points={this.props.points}
-          dispatch={this.props.dispatch}
-          getState={this.props.getState}/>
+        <HexMap/>
         //Info panel should be here.
       </div>
     );

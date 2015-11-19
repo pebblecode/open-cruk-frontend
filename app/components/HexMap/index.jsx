@@ -1,6 +1,9 @@
+import React, {Component, PropTypes } from 'react';
+import {connect} from 'react-redux';
+
 import InfoPanel from './InfoPanel';
 import {getCcg} from '../../actions';
-import React, {Component, PropTypes } from 'react';
+
 
 require('./styles.scss');
 
@@ -153,9 +156,19 @@ HexMap.propTypes = {
   dispatch: PropTypes.func.isRequired,
   getState: PropTypes.func.isRequired,
   ccgCodeSelected: PropTypes.string,
-  ccgSelected: PropTypes.object
-  // selectedCCG: PropTypes.bool
+  ccgSelected: PropTypes.object,
+  points: PropTypes.array.isRequired
 };
 
-export default HexMap;
+function mapStateToProps(state) {
+  const {points, ccgSelected, ccgCodeSelected} = state;
+
+  return {
+    points,
+    ccgSelected,
+    ccgCodeSelected
+  };
+}
+
+export default connect(mapStateToProps)(HexMap);
 
