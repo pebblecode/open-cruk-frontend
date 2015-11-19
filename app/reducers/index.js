@@ -21,9 +21,8 @@ function findComparison(sample, average) {
     return 'similar to';
   } else if (sample < average) {
     return 'worse than';
-  } else {
-    return 'better than';
   }
+  return 'better than';
 }
 
 function calcAverages(ccg) {
