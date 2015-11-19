@@ -66,27 +66,33 @@ class HexMap extends Component {
   }
 
   getStatus(ccg) {
-    if (ccg === null || ccg === undefined) {
-      return 0;
-    } else if (ccg.indexOf('G') > -1) {
-      return 1;
-    } else if (ccg.indexOf('J') > -1) {
-      return 2;
-    } else if (ccg.indexOf('H') > -1) {
-      return 3;
-    } else if (ccg.indexOf('I') > -1) {
-      return 4;
-    } else if (ccg.indexOf('K') > -1) {
-      return 5;
-    } else if (ccg.indexOf('L') > -1) {
-      return 6;
-    } else if (ccg.startsWith('0')) {
-      return 7;
-    } else if (ccg.startsWith('1')) {
-      return 8;
+    if (ccg !== null && ccg !== undefined) {
+      const ccgInfo = this.props.points.filter(p => p.ccg === ccg);
+      if (ccgInfo.length > 0) {
+        const mortalityRate = ccgInfo[0].deaths / ccgInfo[0].incidences;
+        if (mortalityRate < 0.433) {
+          return 1;
+        } else if (mortalityRate < 0.445) {
+          return 2;
+        } else if (mortalityRate < 0.462) {
+          return 3;
+        } else if (mortalityRate < 0.479) {
+          return 4;
+        } else if (mortalityRate < 0.496) {
+          return 5;
+        } else if (mortalityRate < 0.513) {
+          return 6;
+        } else if (mortalityRate < 0.53) {
+          return 7;
+        } else if (mortalityRate < 0.547) {
+          return 8;
+        } else if (mortalityRate < 0.564) {
+          return 9;
+        }
+      }
     }
 
-    return 9;
+    return 0;
   }
 
   render() {
