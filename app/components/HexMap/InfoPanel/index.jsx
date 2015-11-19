@@ -10,6 +10,16 @@ class InfoPanel extends Component {
     let infoContents;
 
     if (this.props.ccgSelected) {
+      const ccg = {};
+      const fields = ['oneYearSurvivalRate', 'specialist', 'firstTreatment'];
+      fields.map((i) => {
+        ccg[i] = {
+          'name': this.props.ccgSelected.name,
+          'rate': this.props.ccgSelected[i].toFixed(1),
+          'comp': this.props.ccgSelected.averages[i],
+          'avg': this.props.ccgSelected.englishAverages[i].toFixed(1)
+        }
+      })
       infoContents = (
         <div>
           <h2>{this.props.ccgSelected.name}</h2>
@@ -24,16 +34,16 @@ class InfoPanel extends Component {
             </div>
           </div>
           <h3>One-year survival rate</h3>
-          <p>One-year cancer survival in {this.props.ccgSelected.name}, 
-          ({this.props.ccgSelected.oneYearSurvivalRate}%) is {this.props.ccgSelected.averages.oneYearSurvivalRate} the English average ({this.props.ccgSelected.englishAverages.oneYearSurvivalRate}%).
+          <p>One-year cancer survival in {ccg.oneYearSurvivalRate.name}, 
+          ({ccg.oneYearSurvivalRate.rate}%) is {ccg.oneYearSurvivalRate.comp} the English average ({ccg.oneYearSurvivalRate.avg}%).
           </p>
           <h3>Speed of referral</h3>
-          <p>The proportion of patients in {this.props.ccgSelected.name} that are urgently referred with suspected cancer and see a specialist within two weeks ({this.props.ccgSelected.specialist}%) 
-           is {this.props.ccgSelected.averages.specialist} the English average ({this.props.ccgSelected.englishAverages.specialist}%).
+          <p>The proportion of patients in {ccg.specialist.name} that are urgently referred with suspected cancer and see a specialist within two weeks ({ccg.specialist.rate}%) 
+           is {ccg.specialist.comp} the English average ({ccg.specialist.avg}%).
           </p>
           <h3>Speed of treatment</h3>
-          <p>The proportion of patients in {this.props.ccgSelected.name} that receive their first treatment for cancer within 62 days of an urgent GP referral ({this.props.ccgSelected.firstTreatment}%) 
-          is {this.props.ccgSelected.averages.firstTreatment} the English average ({this.props.ccgSelected.englishAverages.firstTreatment}%).
+          <p>The proportion of patients in {ccg.firstTreatment.name} that receive their first treatment for cancer within 62 days of an urgent GP referral ({ccg.firstTreatment.rate}%) 
+          is {ccg.firstTreatment.comp} the English average ({ccg.firstTreatment.avg}%).
           </p>
         </div>
       );
