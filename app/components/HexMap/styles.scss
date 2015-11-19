@@ -27,7 +27,7 @@
 }
 
 .hex:hover {
-  opacity: 0.8;
+  opacity: 0.6;
   cursor: pointer;
 }
 
@@ -97,6 +97,10 @@
   .right {
     border-left-color: #ffffcc;
   }
+
+  &:hover{
+    opacity: 0.4;
+  }
 }
 
 .hex.status-2 {
@@ -112,6 +116,11 @@
   .right {
     border-left-color: #ffeda0;
   }
+
+  &:hover{
+    opacity: 0.4;
+  }
+
 }
 
 .hex.status-3 {
