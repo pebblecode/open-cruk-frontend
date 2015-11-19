@@ -4,6 +4,7 @@ import './favicon.ico';
 import './index.html';
 import 'babel-core/polyfill';
 
+require('../node_modules/normalize.css/normalize.css');
 require('./scss/app.scss');
 
 import React from 'react';

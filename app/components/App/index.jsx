@@ -17,10 +17,8 @@ class App extends Component {
   render() {
     return (
       <div className={'page__home'}>
-
         <HexMap/>
         <HexHover/>
-        //Info panel should be here.
       </div>
     );
   }

@@ -1,5 +1,5 @@
 {
-  "name": "wfh-frontend",
+  "name": "cruk-map",
   "version": "1.0.0",
   "config": {
     "buildDir": "./build",
@@ -11,6 +11,7 @@
     "build": "NODE_ENV=production npm run webpack",
     "clean": "rimraf $npm_package_config_buildDir && mkdir $npm_package_config_buildDir",
     "env": "env",
+    "test": "npm run lint",
     "lint": "eslint --ext .js --ext .jsx ./app ./webpack && echo No linting errors.",
     "pretest-travis": "npm install && npm run lint",
     "start": "NODE_ENV=development node dev-server ./webpack/config",
