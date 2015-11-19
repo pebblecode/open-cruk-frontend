@@ -11,6 +11,7 @@ export const REQUEST_INTERVAL_START = 'REQUEST_INTERVAL_START';
 export const REQUEST_CCG = 'REQUEST_CCG';
 export const RECEIVE_CCG = 'RECEIVE_CCG';
 export const POINT_HIGHLIGHTED = 'POINT_HIGHLIGHTED';
+export const CHANGE_DROPDOWN = 'CHANGE_DROPDOWN';
 
 
 export function getMap(dispatch) {
@@ -43,7 +44,7 @@ export function getCcgFromCache(state, ccg) {
 }
 
 export function getCcg(ccgCode) {
-  return function _getCcg(dispatch, getState) {
+  return (dispatch, getState) => {
 
     dispatch({
       type: REQUEST_CCG,
@@ -86,9 +87,17 @@ export function getCcg(ccgCode) {
   };
 }
 
+export function changeDropdown(item) {
+  return (dispatch) => {
+    dispatch({
+      type: CHANGE_DROPDOWN,
+      item
+    });
+  };
+}
 
 export function highlightPoint(point) {
-  return function _highlightPoint(dispatch) {
+  return (dispatch) => {
     dispatch({
       type: POINT_HIGHLIGHTED,
       point

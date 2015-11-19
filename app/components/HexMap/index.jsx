@@ -6,7 +6,6 @@ import {getCcg, highlightPoint} from '../../actions';
 
 require('./styles.scss');
 
-
 class HexMap extends Component {
 
   onClickHexagon(ccg) {
@@ -76,7 +75,7 @@ class HexMap extends Component {
     };
   }
 
-  getLevelOf(value, ccgInfo){
+  getLevelOf(value, ccgInfo) {
     const allCCGs = this.props.points;
     const max = Object.keys(allCCGs).reduce((sum, key) => {
       const d = allCCGs[key][value];
@@ -115,10 +114,10 @@ class HexMap extends Component {
     if (ccg !== null && ccg !== undefined) {
       const ccgInfo = this.getCcgData(ccg);
       if (ccgInfo) {
-        if (this.props.dropdown) {
-          return this.getLevelOf(this.props.dropdown, ccgInfo);
+        if (this.props.dropdown === 'mortalityRate') {
+          return this.getMortalityLevel(ccgInfo);
         }
-        return this.getMortalityLevel(ccgInfo);
+        return this.getLevelOf(this.props.dropdown, ccgInfo);
       }
     }
   }
@@ -186,16 +185,18 @@ class HexMap extends Component {
 HexMap.propTypes = {
   ccgCodeSelected: PropTypes.string,
   ccgSelected: PropTypes.object,
-  points: PropTypes.array.isRequired
+  points: PropTypes.array.isRequired,
+  dropdown: PropTypes.string.isRequired
 };
 
 function mapStateToProps(state) {
-  const {points, ccgSelected, ccgCodeSelected} = state;
+  const {points, ccgSelected, ccgCodeSelected, dropdown} = state;
 
   return {
     points,
     ccgSelected,
-    ccgCodeSelected
+    ccgCodeSelected,
+    dropdown
   };
 }
 

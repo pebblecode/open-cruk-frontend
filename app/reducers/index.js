@@ -5,7 +5,8 @@ import {
   REQUEST_CCG,
   RECEIVE_CCG,
   LOAD_CCG_FAIL,
-  POINT_HIGHLIGHTED
+  POINT_HIGHLIGHTED,
+  CHANGE_DROPDOWN
 }
 from '../actions';
 
@@ -40,7 +41,8 @@ export default function usersReducer(state = {
   ccgLoadFail: false,
   ccgSelected: null,
   ccgCodeSelected: '',
-  pointHighlighted: null
+  pointHighlighted: null,
+  dropdown: 'mortalityRate'
 }, action) {
 
   switch (action.type) {
@@ -95,6 +97,11 @@ export default function usersReducer(state = {
     case POINT_HIGHLIGHTED:
       return Object.assign({}, state, {
         pointHighlighted: action.point
+      });
+
+    case CHANGE_DROPDOWN:
+      return Object.assign({}, state, {
+        dropdown: action.item
       });
 
     default:
