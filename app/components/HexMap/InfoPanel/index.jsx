@@ -32,6 +32,21 @@ class InfoPanel extends Component {
         };
       });
 
+
+      function insertStars(comparison_text){
+        const star_level = {
+          'better than': 3,
+          'similar to': 2,
+          'worse than': 1,
+        }
+        const level = star_level[comparison_text]
+        const arr = []
+        for (let i = 0; i < level; i++){
+          arr.push(<span className="star">★</span>)
+        }
+        return arr
+      }
+
       infoContents = (
         <div>
           <h2>Is cancer diagnosed early enough in {this.props.ccgSelected.name}?</h2>
@@ -50,19 +65,19 @@ class InfoPanel extends Component {
             </div>
           </div>
           <div className={ccg.oneYearSurvivalRate.comp.replace(" ", "")}>
-            <h3>One-year survival rate</h3>
+            <h3>One-year survival rate {insertStars(ccg.oneYearSurvivalRate.comp)}</h3>
             <p>One-year cancer survival in {ccg.oneYearSurvivalRate.name},
             ({ccg.oneYearSurvivalRate.rate}%) is {ccg.oneYearSurvivalRate.comp} the English average ({ccg.oneYearSurvivalRate.avg}%).
             </p>
           </div>
           <div className={ccg.specialist.comp.replace(" ", "")}>
-            <h3>Speed of referral</h3>
+            <h3>Speed of referral {insertStars(ccg.specialist.comp)}</h3>
             <p>The proportion of patients in {ccg.specialist.name} that are urgently referred with suspected cancer and see a specialist within two weeks ({ccg.specialist.rate}%)
              is {ccg.specialist.comp} the English average ({ccg.specialist.avg}%).
             </p>
           </div>
           <div className={ccg.firstTreatment.comp.replace(" ", "")}>
-            <h3>Speed of treatment</h3>
+            <h3>Speed of treatment {insertStars(ccg.firstTreatment.comp)}</h3>
             <p>The proportion of patients in {ccg.firstTreatment.name} that receive their first treatment for cancer within 62 days of an urgent GP referral ({ccg.firstTreatment.rate}%)
             is {ccg.firstTreatment.comp} the English average ({ccg.firstTreatment.avg}%).
             </p>
