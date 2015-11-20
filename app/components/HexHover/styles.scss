@@ -1,3 +1,10 @@
 .HexHover {
-  position:absolute;
+  position: absolute;
+  bottom: 25px;
+  font-size: 26px;
+  font-weight: 500;
+  color: mix(#b3d4fc, black, 75);
+  left: 0;
+  text-align: center;
+  width: calc(100% - 320px);
 }
