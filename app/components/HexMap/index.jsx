@@ -21,6 +21,8 @@ class HexMap extends Component {
 
     if (ccg) {
       dispatch(highlightPoint(this.getCcgData(ccg)));
+    } else {
+      dispatch(highlightPoint({}))
     }
   }
 
