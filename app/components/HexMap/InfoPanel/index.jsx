@@ -1,6 +1,8 @@
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 
+import {resetInfoPanel} from '../../../actions';
+
 require('./styles.scss');
 
 function addCommasTo(number) {
@@ -8,6 +10,11 @@ function addCommasTo(number) {
 }
 
 class InfoPanel extends Component {
+
+  handleReset() {
+    const {dispatch} = this.props;
+    dispatch(resetInfoPanel());
+  }
 
   render() {
 
@@ -50,6 +57,7 @@ class InfoPanel extends Component {
           <p>The proportion of patients in {ccg.firstTreatment.name} that receive their first treatment for cancer within 62 days of an urgent GP referral ({ccg.firstTreatment.rate}%)
           is {ccg.firstTreatment.comp} the English average ({ccg.firstTreatment.avg}%).
           </p>
+        <div className='what-is-this' onClick={this.handleReset.bind(this)}>What is this?</div>
         </div>
       );
     } else {

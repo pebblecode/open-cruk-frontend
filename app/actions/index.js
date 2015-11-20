@@ -12,6 +12,7 @@ export const REQUEST_CCG = 'REQUEST_CCG';
 export const RECEIVE_CCG = 'RECEIVE_CCG';
 export const POINT_HIGHLIGHTED = 'POINT_HIGHLIGHTED';
 export const CHANGE_DROPDOWN = 'CHANGE_DROPDOWN';
+export const RESET_INFOPANEL = 'RESET_INFOPANEL';
 
 
 export function getMap(dispatch) {
@@ -84,6 +85,14 @@ export function getCcg(ccgCode) {
         });
       });
     }
+  };
+}
+
+export function resetInfoPanel() {
+  return (dispatch) => {
+    dispatch({
+      type: RESET_INFOPANEL
+    });
   };
 }
 

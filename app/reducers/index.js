@@ -6,7 +6,8 @@ import {
   RECEIVE_CCG,
   LOAD_CCG_FAIL,
   POINT_HIGHLIGHTED,
-  CHANGE_DROPDOWN
+  CHANGE_DROPDOWN,
+  RESET_INFOPANEL
 }
 from '../actions';
 
@@ -34,7 +35,7 @@ function calcAverages(ccg) {
   };
 }
 
-export default function usersReducer(state = {
+const defaultState = {
   isFetching: false,
   points: [],
   mapLoadFail: false,
@@ -43,7 +44,9 @@ export default function usersReducer(state = {
   ccgCodeSelected: '',
   pointHighlighted: null,
   dropdown: 'mortalityRate'
-}, action) {
+};
+
+export default function usersReducer(state = defaultState, action) {
 
   switch (action.type) {
     case REQUEST_MAP:
@@ -102,6 +105,11 @@ export default function usersReducer(state = {
     case CHANGE_DROPDOWN:
       return Object.assign({}, state, {
         dropdown: action.item
+      });
+
+    case RESET_INFOPANEL:
+      return Object.assign({}, state, {
+        ccgSelected: null
       });
 
     default:
