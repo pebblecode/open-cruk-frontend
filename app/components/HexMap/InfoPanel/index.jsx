@@ -52,6 +52,18 @@ class InfoPanel extends Component {
           </p>
         </div>
       );
+    } else {
+      infoContents = (
+        <div>
+          <h2>Cancer Research UK Open Data Map</h2>
+          <h3>Local Cancer Statistics</h3>
+          <p>Use Local Cancer Statistics to find and compare statistical information and intelligence about cancer in areas across the UK.</p>
+          <h3>What data is available?</h3>
+          <p>This tool includes data on cancer incidence, survival and mortality, refferal and treatment.</p>
+          <h3>Where is the data from?</h3>
+          <p>The data comes from a number of publicly available sources in England, Northern Ireland, Scotland and Wales.</p>
+        </div>
+      )
     }
 
     return (
