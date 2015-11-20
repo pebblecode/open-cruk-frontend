@@ -35,6 +35,11 @@ $hex-scale: 1;
   transition: transform 0.2s;
   color: #B2D9E4;
 
+  .middle {
+    // this fixes the hover edges problem
+    z-index: -1
+  }
+
   span {
     position: absolute;
     top: 50%;
