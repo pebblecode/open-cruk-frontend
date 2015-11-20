@@ -21,11 +21,20 @@ class HexDropdown extends Component {
       name: 'Mortality Rate',
       val: 'mortalityRate'
     }, {
-        name: 'No. of Deaths', 
-        val: 'deaths'
+      name: 'No. of Deaths', 
+      val: 'deaths'
     }, {
       name: 'No. of Cancer Cases', 
       val: 'incidences'
+    }, {
+      name: '1 Year Survival Rate',
+      val: 'oneYearSurvivalRate'
+    }, {
+      name: 'Specialist Referral Speed',
+      val: 'specialist'
+    }, {
+      name: 'Treatment Speed',
+      val: 'firstTreatment'
     }];
     const rows = [];
     for (let i = 0; i < fields.length; i++) {

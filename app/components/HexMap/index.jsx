@@ -77,12 +77,16 @@ class HexMap extends Component {
 
   getLevelOf(value, ccgInfo) {
     const allCCGs = this.props.points;
-    const max = Object.keys(allCCGs).reduce((sum, key) => {
-      const d = allCCGs[key][value];
-      return d > sum ? d : sum;
-    });
+    const min = Math.min.apply(Math, allCCGs.map((item) => item[value]))
+    const max = Math.max.apply(Math, allCCGs.map((item) => item[value]))
+    const diff = max - min
     // Discard decimals and return an integer from 1-9
-    const level = 1 + ~~(ccgInfo[value] / (max / 8));
+    const level = 1 + ~~((8 / diff) * (ccgInfo[value] - min));
+    // Reverse colours for these fields
+    const reversed = ['firstTreatment', 'specialist', 'oneYearSurvivalRate']
+    if (reversed.indexOf(value) >= 0){
+      return Math.abs(level - 9)
+    }
     return level;
   }
 
