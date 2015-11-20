@@ -23,9 +23,13 @@ $hex-scale: 1;
 .map {
   width: auto;
   height: auto;
-  margin: 10px auto 50px;
+  position: absolute;
   font-size: 70%;
   display: table;
+  // background-color: pink;
+  top: 50%;
+  left: calc(50% - 150px);
+  transform: translate(-50%, -50%);
 }
 
 .hex {
@@ -57,7 +61,7 @@ $hex-scale: 1;
     border-radius: 50%;
     box-shadow: 0 0 15px 10px rgba(hsl(200, 100, 20), .4), inset 0 0 0 10px rgba(hsl(220, 80, 30), .4);
   }
-  
+
 }
 
 .hex .left {

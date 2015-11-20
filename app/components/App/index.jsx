@@ -18,6 +18,7 @@ class App extends Component {
   render() {
     return (
       <div className={'page__home'}>
+        <h1 className="page-title">CRUK MAP</h1>
         <HexMap/>
         <HexHover/>
         <HexDropdown/>
