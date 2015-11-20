@@ -44,6 +44,10 @@ class InfoPanel extends Component {
               <div className={'topFigure'}>{addCommasTo(this.props.ccgSelected.deaths)}</div>
               <span className={'topFigureLabel'}>cancer deaths per year</span>
             </div>
+            <div className={'topFigureBox'}>
+              <div className={'topFigure'}>{addCommasTo(this.props.ccgSelected.patients.total_all)}</div>
+              <span className={'topFigureLabel'}>total patients</span>
+            </div>
           </div>
           <div className={ccg.oneYearSurvivalRate.comp.replace(" ", "")}>
             <h3>One-year survival rate</h3>

@@ -35,6 +35,9 @@ class HexDropdown extends Component {
     }, {
       name: 'Treatment Speed',
       val: 'firstTreatment'
+    }, {
+      name: 'Total No. of Patients',
+      val: 'population'
     }];
     const rows = [];
     for (let i = 0; i < fields.length; i++) {
