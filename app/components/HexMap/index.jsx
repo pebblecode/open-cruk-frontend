@@ -85,7 +85,7 @@ class HexMap extends Component {
     // Reverse colours for these fields
     const reversed = ['firstTreatment', 'specialist', 'oneYearSurvivalRate']
     if (reversed.indexOf(value) >= 0){
-      return Math.abs(level - 9)
+      return 1 + Math.abs(level - 9)
     }
     return level;
   }
