@@ -103,3 +103,10 @@ h3 {
 p {
   margin-top: 0;
 }
+
+.page-title {
+  text-align: center;
+  color: mix(#b3d4fc, black, 65);
+  width: calc(100% - 400px);
+  margin-bottom: .5em;
+}
