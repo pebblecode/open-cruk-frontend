@@ -3,7 +3,7 @@
  * Base styles
  * ========================================================================== */
 
-html {
+html, body {
   color: #333E51;
   font-weight: regular;
   font-size: 1em; /* ~16px; */
@@ -12,6 +12,12 @@ html {
   /*background-image: url(molecules.svg);*/
   background:$bg-color;
   background-size: cover;
+}
+
+body {
+    margin: 0 auto;
+    max-width: 1200px;
+    color:$ink;
 }
 
 /*
@@ -94,19 +100,26 @@ textarea {
 h2 {
   line-height: 1.25;
   margin-bottom: 0.2em;
+  font-family: $brandon;
+  font-weight:700;
+  text-transform: uppercase;
 }
 
 h3 {
   margin: 1.8em 0 .2em;
+  font-family:$museo;
+  font-weight:700;
 }
 
 p {
+  font-family:$museo;
   margin-top: 0;
 }
 
 .page-title {
-  text-align: center;
-  color: mix(#b3d4fc, black, 65);
+  text-transform: uppercase;
+  font-family: $brandon;
+  color: $ink;
   width: calc(100% - 400px);
   margin-bottom: .5em;
 }

@@ -1,0 +1,14 @@
+@mixin sprite( $spriteVals ) {
+  width: nth( $spriteVals, 1 );
+  height: nth( $spriteVals, 2 );
+  //background-image: ( #{ nth( $spriteVals, 3 ) } );
+  background-position: nth( $spriteVals, 4 ) nth( $spriteVals, 5 );
+}
+
+$cruk-sprite: '../img/cruk-sprite.svg';
+
+$star: 20px 19px $cruk-sprite 0px -65px;
+$search: 23px 24px $cruk-sprite -26px -61px;
+$arrow: 15px 7px $cruk-sprite -58px -74px;
+$pebble-hacks-logo: 183px 28px $cruk-sprite -151px -9px;
+$cancer-research-logo: 142px 55px $cruk-sprite 0px 0px;

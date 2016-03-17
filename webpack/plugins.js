@@ -19,7 +19,7 @@ if (DEBUG) {
       'process.env': {
         NODE_ENV: JSON.stringify('development')
       },
-      API_URL: JSON.stringify(process.env.API_URL) || JSON.stringify('http://localhost:3000')
+      API_: JSON.stringify(process.env.API_) || JSON.stringify('http://localhost:3000')
     }),
     new webpack.HotModuleReplacementPlugin()
   );
@@ -29,7 +29,7 @@ if (DEBUG) {
       'process.env': {
         NODE_ENV: JSON.stringify('production')
       },
-      API_URL: JSON.stringify(process.env.API_URL) || JSON.stringify('http://localhost:3000')
+      API_: JSON.stringify(process.env.API_) || JSON.stringify('http://localhost:3000')
     }),
     new ExtractTextPlugin(cssBundle, {
       allChunks: true
