@@ -13,7 +13,6 @@ class HexHover extends Component {
 
 }
 
-
 function mapStateToProps(state) {
   const {pointHighlighted} = state;
 

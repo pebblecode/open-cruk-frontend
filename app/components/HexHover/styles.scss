@@ -1,10 +1,16 @@
+@import 'variables';
+
 .HexHover {
   position: absolute;
-  bottom: 25px;
+  bottom: 0px;
   font-size: 26px;
   font-weight: 500;
-  color: mix(#b3d4fc, black, 75);
+  color: #6b7482;
+  background-color:$bg-color;
+  padding:12px;
   left: 0;
   text-align: center;
   width: calc(100% - 320px);
+  font-family: $brandon;
+  text-transform: uppercase;
 }

@@ -1,7 +1,9 @@
 /* @flow */
 
 import {connect} from 'react-redux';
+
 import React, {Component, PropTypes} from 'react';
+import Header from '../Header';
 import HexMap from '../HexMap';
 import HexHover from '../HexHover';
 import HexDropdown from '../HexDropdown';
@@ -20,12 +22,14 @@ class App extends Component {
 
 
       <div className={'page__home'}>
-        <h1 className="page-title">Local cancer stats for england</h1>
-        <p>Click on a region or search for it to explore its local data. View different data for the entire map by clicking the dropdown.</p>
-        <HexMap/>
-        <HexHover/>
-        <HexDropdown/>
 
+        <div className="grid">
+          <h1 className="page-title">Local cancer stats for england</h1>
+          <p className="intro-text">Click on a region or search for it to explore its local data. View different data for the entire map by clicking the dropdown.</p>
+          <HexMap/>
+          <HexHover/>
+          <HexDropdown/>
+        </div>
       </div>
     );
   }

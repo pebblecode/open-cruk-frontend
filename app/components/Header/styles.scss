@@ -1,0 +1,33 @@
+@import 'variables';
+@import 'sprite';
+
+.gbl-head {
+  background-color: $pink;
+  border-bottom: 10px solid darken($pink, 25);
+  padding:20px;
+  position: relative;
+  width: 100%;
+  z-index: 10;
+}
+
+.gbl-head-logo {
+  position: relative;
+  color: transparent;
+  overflow: hidden;
+  display: block;
+  width: 175px;
+  height: 31px;
+  transition: 0.2s;
+
+  &:after {
+    background: url(https://dl.dropboxusercontent.com/u/452318306/cruk-sprite.svg);
+    @include sprite($pebble-hacks-logo);
+    bottom: 0;
+    left: 0;
+  }
+
+  &:hover {
+    color: transparent;
+    opacity: 0.8;
+  }
+}
