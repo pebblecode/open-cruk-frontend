@@ -1,0 +1,146 @@
+@import 'variables';
+
+.hex {
+  &.ccg {
+    cursor: pointer;
+  }
+
+  &.ccg:hover {
+    transform: scale(1.4);
+    position: relative;
+    z-index: 999;
+    border-radius: 50%;
+    box-shadow: 0 0 15px 10px rgba(hsl(200, 100, 20), .4), inset 0 0 0 10px rgba(hsl(220, 80, 30), .4);
+  }
+}
+
+.hex.status-1 {
+  .left {
+    border-right-color: $yellow-1;
+  }
+
+  .middle {
+    background: $yellow-1;
+    color: #3a4153;
+  }
+
+  .right {
+    border-left-color: $yellow-1;
+  }
+
+}
+
+.hex.status-2 {
+  .left {
+    border-right-color: $yellow-2;
+  }
+
+  .middle {
+    background: $yellow-2;
+    color: #3a4153;
+  }
+
+  .right {
+    border-left-color: $yellow-2;
+  }
+
+}
+
+.hex.status-3 {
+  .left {
+    border-right-color: $yellow-3;
+  }
+
+  .middle {
+    background: $yellow-3;
+    color: #3a4153;
+  }
+
+  .right {
+    border-left-color: $yellow-3;
+  }
+}
+
+.hex.status-4 {
+  .left {
+    border-right-color: $orange-1;
+  }
+
+  .middle {
+    background: $orange-1;
+  }
+
+  .right {
+    border-left-color: $orange-1;
+  }
+}
+
+.hex.status-5 {
+  .left {
+    border-right-color: $orange-2;
+  }
+
+  .middle {
+    background: $orange-2;
+  }
+
+  .right {
+    border-left-color: $orange-2;
+  }
+}
+
+.hex.status-6 {
+  .left {
+    border-right-color: $orange-3;
+  }
+
+  .middle {
+    background: $orange-3;
+  }
+
+  .right {
+    border-left-color: $orange-3;
+  }
+}
+
+.hex.status-7 {
+  .left {
+    border-right-color: $red-1;
+  }
+
+  .middle {
+    background: $red-1;
+  }
+
+  .right {
+    border-left-color: $red-1;
+  }
+}
+
+.hex.status-8 {
+  .left {
+    border-right-color: $red-2;
+  }
+
+  .middle {
+    background: $red-2;
+  }
+
+  .right {
+    border-left-color: $red-2;
+  }
+}
+
+.hex.status-9 {
+  .left {
+    border-right-color: $red-3;
+  }
+
+  .middle {
+    background: $red-3;
+  }
+
+  .right {
+    border-left-color: $red-3;
+  }
+}
