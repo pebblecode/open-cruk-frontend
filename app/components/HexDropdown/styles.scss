@@ -1,74 +1,66 @@
 @import 'variables';
 
 .HexDropdown {
-
   // left: calc(50% - 293px);
   font-size: 16px;
   font-family: $museo;
   color:$ink;
 }
 
-// select {
-//   border: 1px solid  $border-grey;
-//   background: transparent;
-//   width: 200px;
-//   padding: 5px 35px 5px 8px;
-//   border: 1px solid #ccc;
-//   height: 43px;
-//   border-radius:0px;
-//   -webkit-appearance: none;
-//   -moz-appearance: none;
-//   appearance: none;
-//   background: url(https://dl.dropboxusercontent.com/u/452318306/arrow.svg) 94% / 12% no-repeat $paper;
-// }
-// /*target Internet Explorer 9 and Internet Explorer 10:*/
-// @media screen and (min-width:0\0) {
-//     select {
-//         background:none;
-//         padding: 5px;
-//     }
-// }
-
-
-
-.select-test {
-  position: relative;
-  /*Don't really need this just for demo styling*/
-
-  float: left;
-  min-width: 380px;
-
-}
-
-.select-test:after {
-  content: url(https://dl.dropboxusercontent.com/u/452318306/arrow.svg);
-  right: 11px;
-  top: 6px;
-  height: 32px;
-  padding: 16px 0px 0px 9px;
-  border-left: 1px solid $border-grey;
-  position: absolute;
-  pointer-events: none;
-}
-
-.select-test select {
+select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  /* Add some styling */
 
-  border-radius:0px;
-  display: block;
-  width: 100%;
-  max-width: 380px;
-  height: 50px;
-  float: right;
-  margin: 5px 0px;
-  padding: 0px 15px;
-  line-height: 1.75;
-  background-color: #ffffff;
-  background-image: none;
-  border: 1px solid $border-grey;
-  -ms-word-break: normal;
-  word-break: normal;
+  &::-ms-expand { /* for IE 11 */
+    display: none;
+  }
 }
+
+.select-test {
+  position: relative;
+  float: left;
+  min-width: 380px;
+
+  select {
+    border-radius:0px;
+    display: block;
+    width: 100%;
+    max-width: 380px;
+    height: 45px;
+    float: right;
+    margin: 5px 0px;
+    padding: 0px 15px;
+    line-height: 1.75;
+    background-color: #ffffff;
+    background-image: none;
+    border: 1px solid $border-grey;
+    -ms-word-break: normal;
+    word-break: normal;
+
+    .ie9 & {
+      margin:0px;
+      padding-left: 5px;
+      padding-right:0px;
+    }
+  }
+
+  &:after {
+    content: url(https://dl.dropboxusercontent.com/u/452318306/arrow.svg);
+    right: 11px;
+    top: 6px;
+    height: 30px;
+    padding: 14px 0px 0px 9px;
+    border-left: 1px solid $border-grey;
+    position: absolute;
+    pointer-events: none;
+
+    .ie9 & {
+      content: '';
+      border-left: 0px;
+    }
+  }
+}
+
+
+

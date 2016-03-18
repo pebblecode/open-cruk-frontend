@@ -17,6 +17,8 @@ class App extends Component {
 
   render() {
     return (
+
+
       <div className={'page__home'}>
         <h1 className="page-title">Local cancer stats for england</h1>
         <p>Click on a region or search for it to explore its local data. View different data for the entire map by clicking the dropdown.</p>

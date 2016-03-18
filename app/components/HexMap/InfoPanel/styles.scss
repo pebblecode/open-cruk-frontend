@@ -3,7 +3,7 @@
 
 .InfoPanel {
   background-color: white;
-  padding: 30px 20px 30px 10px;
+  padding: 30px 20px 30px 40px;
   position: fixed;
   min-width: 300px;
   max-width: 300px; // FIXME: temporary for development
@@ -12,18 +12,7 @@
   right: 0;
 }
 
-.InfoPanel:after {
-  content: "";
-  position: absolute;
-  top: -40px;
-  left: -30px;
-  display: block;
-  width: 80px;
-  height: 110%;
-  transform: rotate(-4deg);
-  background-color: white;
-  z-index: -1;
-}
+
 
 .data-source {
     font-family: $museo;
@@ -32,7 +21,7 @@
     text-decoration: underline;
     color: $purple;
     position: fixed;
-    right: 0;
+
     bottom: 0;
     padding: 10px;
     cursor: pointer;
@@ -40,9 +29,11 @@
 .cruk-logo {
   margin: 25px auto;
   position: relative;
+  position: fixed;
+  bottom: 20px;
 
   &:before {
-    background: url('/img/cruk-sprite.svg');
+    background: url(https://dl.dropboxusercontent.com/u/452318306/cruk-sprite.svg);
     @include sprite($cancer-research-logo);
     content: "";
     display: block;
