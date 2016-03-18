@@ -1,3 +1,5 @@
+@import 'variables';
+
 .hex {
   &.ccg {
     cursor: pointer;
@@ -14,131 +16,131 @@
 
 .hex.status-1 {
   .left {
-    border-right-color: #ffffcc;
+    border-right-color: $yellow-1;
   }
 
   .middle {
-    background: #ffffcc;
+    background: $yellow-1;
     color: #3a4153;
   }
 
   .right {
-    border-left-color: #ffffcc;
+    border-left-color: $yellow-1;
   }
 
 }
 
 .hex.status-2 {
   .left {
-    border-right-color: #ffeda0;
+    border-right-color: $yellow-2;
   }
 
   .middle {
-    background: #ffeda0;
+    background: $yellow-2;
     color: #3a4153;
   }
 
   .right {
-    border-left-color: #ffeda0;
+    border-left-color: $yellow-2;
   }
 
 }
 
 .hex.status-3 {
   .left {
-    border-right-color: #fed976;
+    border-right-color: $yellow-3;
   }
 
   .middle {
-    background: #fed976;
+    background: $yellow-3;
     color: #3a4153;
   }
 
   .right {
-    border-left-color: #fed976;
+    border-left-color: $yellow-3;
   }
 }
 
 .hex.status-4 {
   .left {
-    border-right-color: #feb24c;
+    border-right-color: $orange-1;
   }
 
   .middle {
-    background: #feb24c;
+    background: $orange-1;
   }
 
   .right {
-    border-left-color: #feb24c;
+    border-left-color: $orange-1;
   }
 }
 
 .hex.status-5 {
   .left {
-    border-right-color: #fd8d3c;
+    border-right-color: $orange-2;
   }
 
   .middle {
-    background: #fd8d3c;
+    background: $orange-2;
   }
 
   .right {
-    border-left-color: #fd8d3c;
+    border-left-color: $orange-2;
   }
 }
 
 .hex.status-6 {
   .left {
-    border-right-color: #fc4e2a;
+    border-right-color: $orange-3;
   }
 
   .middle {
-    background: #fc4e2a;
+    background: $orange-3;
   }
 
   .right {
-    border-left-color: #fc4e2a;
+    border-left-color: $orange-3;
   }
 }
 
 .hex.status-7 {
   .left {
-    border-right-color: #e31a1c;
+    border-right-color: $red-1;
   }
 
   .middle {
-    background: #e31a1c;
+    background: $red-1;
   }
 
   .right {
-    border-left-color: #e31a1c;
+    border-left-color: $red-1;
   }
 }
 
 .hex.status-8 {
   .left {
-    border-right-color: #bd0026;
+    border-right-color: $red-2;
   }
 
   .middle {
-    background: #bd0026;
+    background: $red-2;
   }
 
   .right {
-    border-left-color: #bd0026;
+    border-left-color: $red-2;
   }
 }
 
 .hex.status-9 {
   .left {
-    border-right-color: #800026;
+    border-right-color: $red-3;
   }
 
   .middle {
-    background: #800026;
+    background: $red-3;
   }
 
   .right {
-    border-left-color: #800026;
+    border-left-color: $red-3;
   }
 }

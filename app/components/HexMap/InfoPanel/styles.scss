@@ -1,3 +1,6 @@
+@import 'variables';
+@import 'sprite';
+
 .InfoPanel {
   background-color: white;
   padding: 30px 20px 30px 10px;
@@ -22,25 +25,45 @@
   z-index: -1;
 }
 
-.what-is-this {
+.data-source {
+    font-family: $museo;
+    font-weight: 700;
+    font-size:$zeta;
+    text-decoration: underline;
+    color: $purple;
     position: fixed;
     right: 0;
     bottom: 0;
     padding: 10px;
     cursor: pointer;
 }
+.cruk-logo {
+  margin: 25px auto;
+  position: relative;
+
+  &:before {
+    background: url('/img/cruk-sprite.svg');
+    @include sprite($cancer-research-logo);
+    content: "";
+    display: block;
+  }
+}
 
 .worsethan h3 {
-    color: #E31A1C;
+
 }
 
 .betterthan h3 {
-    color: green;
+
 }
 
 .similarto h3 {
-    color: #FD8D3C;
+
 }
+.star {
+  color:$pink;
+}
+
 
 .topFiguresPanel {
     margin-top: 15px;
@@ -49,7 +72,6 @@
       display: inline-block;
       vertical-align: top;
       padding: 0%;
-      text-align: center;
       font-size: 13px;
       .topFigure {
           font-size: 26px;

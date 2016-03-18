@@ -49,7 +49,7 @@ class InfoPanel extends Component {
 
       infoContents = (
         <div>
-          <h2>Is cancer diagnosed early enough in {this.props.ccgSelected.name}?</h2>
+          <h2>{this.props.ccgSelected.name}</h2>
           <div className={'topFiguresPanel'}>
             <div className={'topFigureBox'}>
               <div className={'topFigure'}>{addCommasTo(this.props.ccgSelected.incidences)}</div>
@@ -82,7 +82,8 @@ class InfoPanel extends Component {
             is {ccg.firstTreatment.comp} the English average ({ccg.firstTreatment.avg}%).
             </p>
           </div>
-          <div className='what-is-this' onClick={this.handleReset.bind(this)}>What is this?</div>
+          <div className='cruk-logo'></div>
+          <div className='data-source' onClick={this.handleReset.bind(this)}>Click to view our data sources</div>
         </div>
       );
     } else {

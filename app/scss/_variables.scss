@@ -1,3 +1,32 @@
 $font-family-base: 'HelveticaNeue', sans-serif;
 $white-base: rgb(255, 255, 255);
-$bg-color: #B2D9E4;
+$bg-color: #DEE8F5;
+$paper: #fff;
+
+//pebble {code} Colours
+$ink: #6b7482;
+$pink: #ed4f7e;
+$purple: #9b5ca4;
+$border-grey: lighten($ink, 42);
+
+
+//Heat Map Colours
+$red-3: #B51B47;
+$red-2: #C9314B;
+$red-1: #E83042;
+
+$orange-3: #F44E36;
+$orange-2: #E85B46;
+$orange-1: #F6814B;
+
+$yellow-3: #FDBE6F;
+$yellow-2: #FEE99A;
+$yellow-1: #FDFDBC;
+
+//Type
+$base-font: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+$museo: 'museo-sans', $base-font;
+$brandon: 'brandon-grotesque', $base-font;
+$delta: 18px;
+$epsilon: 14px;
+$zeta: 14px;

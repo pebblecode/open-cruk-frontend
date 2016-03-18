@@ -21,10 +21,10 @@ class HexDropdown extends Component {
       name: 'Mortality Rate',
       val: 'mortalityRate'
     }, {
-      name: 'No. of Deaths', 
+      name: 'No. of Deaths',
       val: 'deaths'
     }, {
-      name: 'No. of Cancer Cases', 
+      name: 'No. of Cancer Cases',
       val: 'incidences'
     }, {
       name: '1 Year Survival Rate',
@@ -43,10 +43,13 @@ class HexDropdown extends Component {
     for (let i = 0; i < fields.length; i++) {
     	rows.push(<option value={fields[i].val} key={i}>{fields[i].name}</option>)
     }
-    return ( 
-    	<select className={'HexDropdown'} onChange={this.handleChange.bind(this)}>
-    		{rows}
-    	</select> 
+    return (
+    	<div className="select-test">
+        <select className={'HexDropdown'} onChange={this.handleChange.bind(this)}>
+    		  {rows}
+    	 </select>
+      </div>
+
     );
   }
 
@@ -66,3 +69,5 @@ HexDropdown.propTypes = {
 };
 
 export default connect(mapStateToProps)(HexDropdown);
+
+
