@@ -2,6 +2,10 @@ import React, {Component, PropTypes } from 'react';
 import {connect} from 'react-redux';
 
 import InfoPanel from './InfoPanel';
+import Hex from './Hex';
+import SeaHex from './SeaHex';
+import LandHex from './LandHex';
+import CcgHex from './CcgHex';
 import {getCcg, highlightPoint} from '../../actions';
 
 require('./styles.scss');
@@ -77,6 +81,53 @@ class HexMap extends Component {
     };
   }
 
+  isLand(row, col) {
+    const landMap = {
+      11: [-1, 1],
+      12: [-2, 0],
+      13: [-3, -1, 1],
+      14: [-2, 0, 2],
+      15: [-1, 1],
+      16: [0],
+      17: [-1, 1],
+      18: [0],
+      19: [-1, 1],
+      20: [0, 2],
+      21: [-1, 1],
+      22: [-2, 0, 2],
+      23: [-1, 1],
+      24: [-2, 0, 2],
+      25: [1],
+      26: [2],
+      42: [0, 2, 4],
+      43: [1, 3],
+      44: [2, 4],
+      45: [1, 3],
+      46: [2, 4],
+      47: [1, 3],
+      48: [0, 2, 4],
+      49: [-1, 1, 3, 5],
+      50: [0, 2, 4],
+      51: [1, 3, 5],
+      52: [0, 2, 4, 6],
+      53: [-1, 1, 3, 5],
+      54: [0, 2, 4, 6],
+      55: [-1, 1, 3, 5],
+      56: [-2, 0, 2, 4, 6],
+      57: [-1, 1, 3, 5],
+      58: [0, 2],
+      59: [1],
+      60: [0, 2],
+      61: [-3, 1, 3],
+      62: [0, 2],
+      63: [-3, 1, 3],
+      64: [-2, 2, 4],
+      65: [3, 5],
+      66: [2, 4],
+    };
+    return row in landMap && landMap[row].indexOf(col) >= 0;
+  }
+
   getLevelOf(value, ccgInfo) {
     const val = ccgInfo[value]
     const allCCGs = this.props.points;
@@ -135,36 +186,39 @@ class HexMap extends Component {
   }
 
   render() {
-    const width = 18;
-    const height = 22;
+    const width = 21;
+    const height = 37;
     const hexagons = [];
     const coordsCcgMap = this.getCoordsCcgMap();
+    const mapXYToRowCol = (x, y) => {
+      const row =
+        x % 2 === 0
+        ? (2 * y) + 1
+        : (2 * y);
+      const col = x - 3;
+      return { row, col };
+    };
     for (let y = height - 1; y >= 0; y--) {
       const rowContents = [];
       for (let x = 0; x < width; x++) {
-        const row =
-          x % 2 === 0
-          ? (2 * y) + 1
-          : (2 * y);
-        const col = x + 1;
-        const ccg = this.getCcg(coordsCcgMap, row, col);
-        const statusClass = 'status-' + this.getStatus(ccg);
-        const parityClass =
-          x % 2 === 0
-          ? ''
-          : 'even';
-        const hexClass = 'hex' + ' ' + statusClass + ' ' + parityClass;
+        const { row, col } = mapXYToRowCol(x, y);
         const key = y + '-' + x;
-        const hexagon =
-          (<div className={hexClass} key={key}
-            onClick={this.onClickHexagon.bind(this, ccg)}
-            onMouseEnter={this.onMouseEnterHexagon.bind(this, ccg)}>
-            <div className={'left'}></div>
-            <div className={'middle'}>
-            </div>
-            <div className={'right'}></div>
-          </div>);
-        rowContents.push(hexagon);
+        const even = x % 2 !== 0;
+        const ccg = this.getCcg(coordsCcgMap, row, col);
+        if (ccg !== null) {
+          const statusClass = 'status-' + this.getStatus(ccg);
+          const hexagon =
+            (<CcgHex className={statusClass} key={key}
+              isEven={even}
+              onClick={this.onClickHexagon.bind(this, ccg)}
+              onMouseEnter={this.onMouseEnterHexagon.bind(this, ccg)}>
+            </CcgHex>);
+          rowContents.push(hexagon);
+        } else if (this.isLand(row, col)) {
+          rowContents.push(<LandHex key={key} isEven={even} />);
+        } else {
+          rowContents.push(<SeaHex key={key} isEven={even} />);
+        }
       }
       const rowKey = 'row-' + y;
       const row = (
@@ -182,7 +236,7 @@ class HexMap extends Component {
           </div>
         </div>
         <div className={'HexMap-info-container'}>
-          <InfoPanel/>
+          <InfoPanel />
         </div>
       </div>
     );

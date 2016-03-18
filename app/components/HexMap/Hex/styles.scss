@@ -1,0 +1,56 @@
+$hex-scale: 1;
+
+.hex {
+  float: left;
+  margin-right: -9px * $hex-scale;
+  margin-bottom: -17px * $hex-scale;
+  transition: transform 0.2s;
+  color: #B2D9E4;
+}
+
+.middle {
+  // this fixes the hover edges problem
+  z-index: -1
+}
+
+span {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.left {
+  float: left;
+  width: 0;
+  border-top: 17px * $hex-scale solid transparent;
+  border-bottom: 17px * $hex-scale solid transparent;
+}
+
+.middle {
+  float: left;
+  width: 20px * $hex-scale;
+  height: 35px * $hex-scale;
+  position: relative;
+  color: white;
+}
+
+.right {
+  float: left;
+  width: 0;
+  border-top: 17px * $hex-scale solid transparent;
+  border-bottom: 17px * $hex-scale solid transparent;
+}
+
+.hex.even {
+  margin-top: 18px * $hex-scale;
+}
+
+.left {
+  border-right-width: 10px  * $hex-scale;
+  border-right-style: solid;
+}
+
+.right {
+  border-left-width: 10px * $hex-scale;
+  border-left-style: solid;
+}
