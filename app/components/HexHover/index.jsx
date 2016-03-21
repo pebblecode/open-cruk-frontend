@@ -8,7 +8,7 @@ class HexHover extends Component {
   render() {
     const name = this.props.pointHighlighted ? this.props.pointHighlighted.name : '';
 
-    return ( <div className={'HexHover'}> {name}</div> );
+    return ( <div></div> );
   }
 
 }
