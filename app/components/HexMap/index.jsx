@@ -2,6 +2,7 @@ import React, {Component, PropTypes } from 'react';
 import {connect} from 'react-redux';
 
 import InfoPanel from './InfoPanel';
+import ColourKey from '../ColourKey';
 import Hex from './Hex';
 import SeaHex from './SeaHex';
 import LandHex from './LandHex';
@@ -203,7 +204,6 @@ class HexMap extends Component {
         if (ccg !== null) {
           const placement = getCcgValuePlace(ccg);
           const colour = this.getColour(placement);
-          console.log(ccg, placement, colour);
           const hexagon =
             (<CcgHex colour={colour} key={key}
               isEven={even}
@@ -230,6 +230,8 @@ class HexMap extends Component {
           <div className={'map'}>
             {hexagons}
           </div>
+          <br />
+          <ColourKey />
         </div>
         <div className={'HexMap-info-container'}>
           <InfoPanel />
