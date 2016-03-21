@@ -89,13 +89,7 @@ class InfoPanel extends Component {
     } else {
       infoContents = (
         <div>
-          <h2>Cancer Research UK Open Data Map</h2>
-          <h3>Local Cancer Statistics</h3>
-          <p>Use this tool to explore cancer treatment data across England. Click on a region to explore its local data, or change the representation for the entire map by clicking the dropdown.</p>
-          <h3>What data is available?</h3>
-          <p>This tool includes data on cancer incidence, survival and mortality, referral and treatment.</p>
-          <h3>Where is the data from?</h3>
-          <p>The data comes from a number of publicly available sources across England. Each hexagon represents an area that corresponds to its nearest Clinical Commissioning Group.</p>
+
         </div>
       )
     }

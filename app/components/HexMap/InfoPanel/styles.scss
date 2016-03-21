@@ -4,13 +4,14 @@
 .InfoPanel {
   background-color: white;
   padding: 20px 20px 30px 40px;
-  position: fixed;
+  position: absolute;
   min-width: 300px;
   max-width: 300px; // FIXME: temporary for development
   height: 100%;
   top: 0;
   right: 0;
-  z-index:20;
+  min-height:100%;
+  padding-top:90px;
 }
 
 
@@ -24,17 +25,13 @@
     font-size:$zeta;
     text-decoration: underline;
     color: $purple;
-    position: fixed;
-
-    bottom: 0;
     padding: 10px;
     cursor: pointer;
 }
 .cruk-logo {
   margin: 25px auto;
   position: relative;
-  position: fixed;
-  bottom: 20px;
+
 
   &:before {
     background: url(https://dl.dropboxusercontent.com/u/452318306/cruk-sprite.svg);

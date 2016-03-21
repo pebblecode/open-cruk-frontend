@@ -13,11 +13,7 @@ $hex-scale: 1;
   z-index: -1
 }
 
-span {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-}
+
 
 .left {
   float: left;
@@ -28,7 +24,7 @@ span {
 
 .middle {
   float: left;
-  width: 20px * $hex-scale;
+  width: 21px * $hex-scale;
   height: 35px * $hex-scale;
   position: relative;
   color: white;
