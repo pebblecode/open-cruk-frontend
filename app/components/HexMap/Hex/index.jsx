@@ -4,16 +4,22 @@ require('./styles.scss');
 
 class Hex extends Component {
   render() {
-    const { className, isEven } = this.props;
+    const {
+      className,
+      isEven,
+      leftStyle,
+      middleStyle,
+      rightStyle
+    } = this.props;
     const hexClass =
       isEven
       ? 'hex even ' + className
       : 'hex ' + className;
     return (
       <div {...this.props} className={hexClass}>
-        <div className='left' />
-        <div className='middle' />
-        <div className='right' />
+        <div className='left' style={leftStyle} />
+        <div className='middle' style={middleStyle} />
+        <div className='right' style={rightStyle} />
       </div>
     );
   }

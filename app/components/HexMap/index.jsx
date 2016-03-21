@@ -131,68 +131,60 @@ class HexMap extends Component {
     return row in landMap && landMap[row].indexOf(col) >= 0;
   }
 
-  getLevelOf(value, ccgInfo) {
-    const val = ccgInfo[value]
-    const allCCGs = this.props.points;
-    const min = Math.min.apply(Math, allCCGs.map((item) => item[value]))
-    const max = Math.max.apply(Math, allCCGs.map((item) => item[value]))
-    const diff = max - min
-    // Discard decimals and return an integer from 1-9
-    const level = 1 + ~~((8 / diff) * (val - min));
-    // Reverse colours for these fields
-    const reversed = ['firstTreatment', 'specialist', 'oneYearSurvivalRate']
-    if (reversed.indexOf(value) >= 0){
-      return 1 + Math.abs(level - 9)
-    }
-    return level;
-  }
-
-  getMortalityLevel(ccgInfo) {
-    const mortalityRate = ccgInfo.deaths / ccgInfo.incidences;
-    if (mortalityRate < 0.433) {
-      return 1;
-    } else if (mortalityRate < 0.445) {
-      return 2;
-    } else if (mortalityRate < 0.462) {
-      return 3;
-    } else if (mortalityRate < 0.479) {
-      return 4;
-    } else if (mortalityRate < 0.496) {
-      return 5;
-    } else if (mortalityRate < 0.513) {
-      return 6;
-    } else if (mortalityRate < 0.53) {
-      return 7;
-    } else if (mortalityRate < 0.547) {
-      return 8;
-    } else if (mortalityRate < 0.564) {
-      return 9;
-    }
-    return 0;
-  }
-
-  getStatus(ccg) {
-    if (ccg !== null && ccg !== undefined) {
-      const ccgInfo = this.getCcgData(ccg);
-      if (ccgInfo) {
-        if (this.props.dropdown === 'mortalityRate') {
-          return this.getMortalityLevel(ccgInfo);
-        }
-        return this.getLevelOf(this.props.dropdown, ccgInfo);
-      }
-    }
-    return 0
-  }
-
   getCcgData(ccg) {
     return this.props.points.filter(p => p.ccg === ccg)[0];
   }
 
+  getColour(p) {
+    const start = {
+      r: 253,
+      g: 253,
+      b: 188
+    };
+    const mid = {
+      r: 232,
+      g: 91,
+      b: 70
+    };
+    const end = {
+      r: 181,
+      g: 27,
+      b: 71
+    };
+    const startRange = p < 0.5 ? start : mid;
+    const endRange = p < 0.5 ? mid : end;
+    if (p < 0.5) {
+      p *= 2;
+    } else {
+      p = (p - 0.5) * 2;
+    }
+    const colourPart = (start, end) => {
+      return Math.round((end - start) * p + start);
+    };
+    const r = colourPart(startRange.r, endRange.r),
+          g = colourPart(startRange.g, endRange.g),
+          b = colourPart(startRange.b, endRange.b);
+    return 'rgb(' + r + ', ' + g + ', ' + b + ')';
+  }
+
   render() {
+    const { points, dropdown } = this.props;
+    if (!points || points.length === 0) {
+      return null;
+    }
+
     const width = 21;
     const height = 37;
     const hexagons = [];
     const coordsCcgMap = this.getCoordsCcgMap();
+    const bounds = {
+      min: Math.min.apply(Math, points.map(item => item[dropdown])),
+      max: Math.max.apply(Math, points.map(item => item[dropdown]))
+    };
+    const getCcgValuePlace = ccg => {
+      const value = points.filter(p => p.ccg === ccg)[0][dropdown];
+      return (value - bounds.min) / (bounds.max - bounds.min);
+    }
     const mapXYToRowCol = (x, y) => {
       const row =
         x % 2 === 0
@@ -209,9 +201,11 @@ class HexMap extends Component {
         const even = x % 2 !== 0;
         const ccg = this.getCcg(coordsCcgMap, row, col);
         if (ccg !== null) {
-          const statusClass = 'status-' + this.getStatus(ccg);
+          const placement = getCcgValuePlace(ccg);
+          const colour = this.getColour(placement);
+          console.log(ccg, placement, colour);
           const hexagon =
-            (<CcgHex className={statusClass} key={key}
+            (<CcgHex colour={colour} key={key}
               isEven={even}
               onClick={this.onClickHexagon.bind(this, ccg)}
               onMouseEnter={this.onMouseEnterHexagon.bind(this, ccg)}>
@@ -223,9 +217,8 @@ class HexMap extends Component {
           rowContents.push(<SeaHex key={key} isEven={even} />);
         }
       }
-      const rowKey = 'row-' + y;
       const row = (
-        <div className={'hex-row'} key={rowKey}>
+        <div className={'hex-row'} key={'row-' + y}>
           {rowContents}
         </div>);
       hexagons.push(row);
