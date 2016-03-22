@@ -11,7 +11,7 @@ class Header extends Component {
 
         <nav className="gbl-head-nav">
           <a href="/" className="gbl-head-nav-item" >Data API using CRUK data</a>
-          <a href="/" className="gbl-head-nav-item btn">Tell Me More</a>
+          <a href="/" className="gbl-head-nav-item btn">Tell me more</a>
         </nav>
       </header>
 
