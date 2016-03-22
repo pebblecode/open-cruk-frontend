@@ -1,10 +1,7 @@
 .HexMap-container {
   width: 75%;
   float: left;
-
   transition: 0.2s;
-
-
 }
 
 .HexMap-info-container {
@@ -38,6 +35,11 @@
     transform: scale(0.6);
     left: calc(55% - 65vw);
   }
+  @media screen and (max-width:700px) {
+    width: 900px;
+    left:-200px;
+  }
+
 
 }
 
