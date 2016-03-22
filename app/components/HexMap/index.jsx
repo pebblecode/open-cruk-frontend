@@ -178,6 +178,11 @@ class HexMap extends Component {
     const height = 37;
     const hexagons = [];
     const coordsCcgMap = this.getCoordsCcgMap();
+    const redIsHigh =
+      dropdown === 'mortalityRate'
+      || dropdown === 'deaths'
+      || dropdown === 'incidences'
+      || dropdown === 'population';
     const bounds = {
       min: Math.min.apply(Math, points.map(item => item[dropdown])),
       max: Math.max.apply(Math, points.map(item => item[dropdown]))
@@ -203,7 +208,7 @@ class HexMap extends Component {
         const ccg = this.getCcg(coordsCcgMap, row, col);
         if (ccg !== null) {
           const placement = getCcgValuePlace(ccg);
-          const colour = this.getColour(placement);
+          const colour = this.getColour(redIsHigh ? placement : 1 - placement);
           const hexagon =
             (<CcgHex colour={colour} key={key}
               isEven={even}
@@ -233,7 +238,7 @@ class HexMap extends Component {
             {hexagons}
           </div>
           <br />
-          <ColourKey />
+          <ColourKey redIsHigh={redIsHigh} />
         </div>
         <div className={'HexMap-info-container col col--3'}>
           <InfoPanel />
