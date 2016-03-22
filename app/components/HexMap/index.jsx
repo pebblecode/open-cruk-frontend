@@ -7,7 +7,7 @@ import Hex from './Hex';
 import SeaHex from './SeaHex';
 import LandHex from './LandHex';
 import CcgHex from './CcgHex';
-import {getCcg, highlightPoint} from '../../actions';
+import { getCcg, highlightPoint } from '../../actions';
 
 require('./styles.scss');
 
@@ -15,14 +15,14 @@ class HexMap extends Component {
 
   onClickHexagon(ccg) {
     /* eslint "react/prop-types": 0*/
-    const {dispatch, getState} = this.props;
+    const { dispatch, getState } = this.props;
     if (ccg) {
       dispatch(getCcg(ccg, getState));
     }
   }
 
   onMouseEnterHexagon(ccg) {
-    const {dispatch} = this.props;
+    const { dispatch } = this.props;
 
     if (ccg) {
       dispatch(highlightPoint(this.getCcgData(ccg)));
@@ -169,7 +169,7 @@ class HexMap extends Component {
   }
 
   render() {
-    const { points, dropdown } = this.props;
+    const { points, dropdown, pointHighlighted } = this.props;
     if (!points || points.length === 0) {
       return null;
     }
@@ -208,7 +208,8 @@ class HexMap extends Component {
             (<CcgHex colour={colour} key={key}
               isEven={even}
               onClick={this.onClickHexagon.bind(this, ccg)}
-              onMouseEnter={this.onMouseEnterHexagon.bind(this, ccg)}>
+              onMouseEnter={this.onMouseEnterHexagon.bind(this, ccg)}
+              ccg={ccg}>
             </CcgHex>);
           rowContents.push(hexagon);
         } else if (this.isLand(row, col)) {
@@ -251,7 +252,7 @@ HexMap.propTypes = {
 };
 
 function mapStateToProps(state) {
-  const {points, ccgSelected, ccgCodeSelected, dropdown} = state;
+  const { points, ccgSelected, ccgCodeSelected, dropdown } = state;
 
   return {
     points,

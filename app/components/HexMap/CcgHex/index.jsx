@@ -5,12 +5,11 @@ require('./styles.scss');
 
 class CcgHex extends Component {
   render() {
-    const { colour } = this.props;
-    return <Hex {...this.props}
-      className='ccg'
-      leftStyle={{'borderRightColor': colour}}
-      middleStyle={{'background': colour}}
-      rightStyle={{'borderLeftColor': colour}} />;
+    const { colour, ccg } = this.props;
+    return (
+      <Hex {...this.props} className='ccg' colour={colour}>
+        <span className='ccgTooltip'>{ccg}</span>
+      </Hex>);
   }
 }
 

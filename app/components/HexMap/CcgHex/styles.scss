@@ -3,6 +3,11 @@
 .hex {
   &.ccg {
     cursor: pointer;
+
+    .ccgTooltip {
+      position: absolute;
+      visibility: hidden;
+    }
   }
 
   &.ccg:hover {
@@ -11,5 +16,9 @@
     z-index: 999;
     border-radius: 50%;
     box-shadow: 0 0 15px 10px rgba(hsl(200, 100, 20), .4), inset 0 0 0 10px rgba(hsl(220, 80, 30), .4);
+
+    .ccgTooltip {
+      visibility: visible;
+    }
   }
 }
