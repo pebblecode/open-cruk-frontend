@@ -169,7 +169,7 @@ class HexMap extends Component {
   }
 
   render() {
-    const { points, dropdown, pointHighlighted } = this.props;
+    const { points, dropdown, ccgSelected } = this.props;
     if (!points || points.length === 0) {
       return null;
     }
@@ -234,6 +234,8 @@ class HexMap extends Component {
       hexagons.push(row);
     }
 
+    const infoPanel = ccgSelected ? <InfoPanel /> : null;
+
     return (
       <div className={'HexMap grid'}>
         <div className={'HexMap-container col col--8'}>
@@ -245,7 +247,7 @@ class HexMap extends Component {
           <ColourKey redIsHigh={redIsHigh} />
         </div>
         <div className={'HexMap-info-container col col--3'}>
-          <InfoPanel />
+          {infoPanel}
         </div>
       </div>
     );
