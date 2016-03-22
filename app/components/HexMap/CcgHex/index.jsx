@@ -8,7 +8,7 @@ class CcgHex extends Component {
     const { colour, ccg } = this.props;
     return (
       <Hex {...this.props} className='ccg' colour={colour}>
-        <span className='ccgTooltip'>{ccg}</span>
+        <span className='ccgTooltip tooltip-right'>{ccg}</span>
       </Hex>);
   }
 }
