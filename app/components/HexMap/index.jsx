@@ -190,7 +190,11 @@ class HexMap extends Component {
     const getCcgValuePlace = ccg => {
       const value = points.filter(p => p.ccg === ccg)[0][dropdown];
       return (value - bounds.min) / (bounds.max - bounds.min);
-    }
+    };
+    const getCcgName = ccg => {
+      const match = points.filter(p => p.ccg === ccg);
+      return match.length > 0 ? match[0].name : '';
+    };
     const mapXYToRowCol = (x, y) => {
       const row =
         x % 2 === 0
@@ -214,7 +218,7 @@ class HexMap extends Component {
               isEven={even}
               onClick={this.onClickHexagon.bind(this, ccg)}
               onMouseEnter={this.onMouseEnterHexagon.bind(this, ccg)}
-              ccg={ccg}>
+              ccgName={getCcgName(ccg)}>
             </CcgHex>);
           rowContents.push(hexagon);
         } else if (this.isLand(row, col)) {

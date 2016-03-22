@@ -5,10 +5,10 @@ require('./styles.scss');
 
 class CcgHex extends Component {
   render() {
-    const { colour, ccg } = this.props;
+    const { colour, ccgName } = this.props;
     return (
       <Hex {...this.props} className='ccg' colour={colour}>
-        <span className='ccgTooltip tooltip-right'>{ccg}</span>
+        <span className='ccgTooltip tooltip-right'>{ccgName}</span>
       </Hex>);
   }
 }
