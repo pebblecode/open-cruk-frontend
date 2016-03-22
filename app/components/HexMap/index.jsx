@@ -169,7 +169,7 @@ class HexMap extends Component {
   }
 
   render() {
-    const { points, dropdown, pointHighlighted } = this.props;
+    const { points, dropdown, ccgSelected } = this.props;
     if (!points || points.length === 0) {
       return null;
     }
@@ -190,7 +190,11 @@ class HexMap extends Component {
     const getCcgValuePlace = ccg => {
       const value = points.filter(p => p.ccg === ccg)[0][dropdown];
       return (value - bounds.min) / (bounds.max - bounds.min);
-    }
+    };
+    const getCcgName = ccg => {
+      const match = points.filter(p => p.ccg === ccg);
+      return match.length > 0 ? match[0].name : '';
+    };
     const mapXYToRowCol = (x, y) => {
       const row =
         x % 2 === 0
@@ -214,7 +218,7 @@ class HexMap extends Component {
               isEven={even}
               onClick={this.onClickHexagon.bind(this, ccg)}
               onMouseEnter={this.onMouseEnterHexagon.bind(this, ccg)}
-              ccg={ccg}>
+              ccgName={getCcgName(ccg)}>
             </CcgHex>);
           rowContents.push(hexagon);
         } else if (this.isLand(row, col)) {
@@ -230,6 +234,8 @@ class HexMap extends Component {
       hexagons.push(row);
     }
 
+    const infoPanel = ccgSelected ? <InfoPanel /> : null;
+
     return (
       <div className={'HexMap grid'}>
         <div className={'HexMap-container col col--8'}>
@@ -241,7 +247,7 @@ class HexMap extends Component {
           <ColourKey redIsHigh={redIsHigh} />
         </div>
         <div className={'HexMap-info-container col col--3'}>
-          <InfoPanel />
+          {infoPanel}
         </div>
       </div>
     );
