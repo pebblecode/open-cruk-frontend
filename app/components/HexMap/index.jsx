@@ -225,13 +225,14 @@ class HexMap extends Component {
     }
 
     return (
-      <div className={'HexMap'}>
-        <div className={'HexMap-container'}>
+      <div className={'HexMap grid'}>
+        <div className={'HexMap-container col col--8'}>
+
           <div className={'map'}>
             {hexagons}
           </div>
         </div>
-        <div className={'HexMap-info-container'}>
+        <div className={'HexMap-info-container col col--3'}>
           <InfoPanel />
         </div>
       </div>

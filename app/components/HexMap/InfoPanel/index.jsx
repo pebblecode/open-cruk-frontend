@@ -5,6 +5,7 @@ import {resetInfoPanel} from '../../../actions';
 
 require('./styles.scss');
 
+
 function addCommasTo(number) {
   return number.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
@@ -48,7 +49,7 @@ class InfoPanel extends Component {
       }
 
       infoContents = (
-        <div>
+        <div className="grid">
           <h2>{this.props.ccgSelected.name}</h2>
           <div className={'topFiguresPanel'}>
             <div className={'topFigureBox'}>

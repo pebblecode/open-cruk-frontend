@@ -1,3 +1,10 @@
+//Screen Sizes
+$bpoint-max: 2200px;
+$bpoint-lrg: 1000px;
+$bpoint-mid: 768px;
+$bpoint-sml: 550px;
+
+
 $font-family-base: 'HelveticaNeue', sans-serif;
 $white-base: rgb(255, 255, 255);
 $bg-color: #DEE8F5;
@@ -27,6 +34,10 @@ $yellow-1: #FDFDBC;
 $base-font: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
 $museo: 'museo-sans', $base-font;
 $brandon: 'brandon-grotesque', $base-font;
+
+$beta: 22px;
+$gamma: 20px;
 $delta: 18px;
-$epsilon: 14px;
+$epsilon: 16px;
 $zeta: 14px;
+$sub: 13px;

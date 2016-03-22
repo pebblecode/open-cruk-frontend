@@ -18,19 +18,7 @@ body {
     color:$ink;
 }
 
-.grid {
-  clear: both;
-  margin: 0 auto;
-  max-width: 1100px;
-  padding-right: 20px;
-  padding-left: 20px;
 
-  &:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-}
 
 /*
  * Remove text-shadow in selection highlight:
@@ -121,11 +109,21 @@ h3 {
   margin: 1.8em 0 .2em;
   font-family:$museo;
   font-weight:700;
+  font-size: $delta;
+
+  @media screen and (max-width:768px) {
+    font-size: $epsilon;
+  }
 }
 
 p {
   font-family:$museo;
   margin-top: 0;
+  font-size: $epsilon;
+
+  @media screen and (max-width:768px) {
+    font-size: $zeta;
+  }
 }
 
 .page-title {
@@ -134,9 +132,18 @@ p {
   color: $ink;
   width: calc(100% - 400px);
   margin-bottom:2px;
+
+
+  @media screen and (max-width:768px) {
+    font-size: $beta;
+  }
 }
 
 .intro-text {
   width:600px;
   margin-bottom:5px;
+
+  @media screen and (max-width:768px) {
+    width:400px;
+  }
 }

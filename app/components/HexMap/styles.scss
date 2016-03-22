@@ -19,18 +19,43 @@
 
 .map {
   z-index: -5;
-  margin-top: -331px;
+  margin-top: -550px;
   padding-top:0px;
   width: auto;
   height: auto;
   position: absolute;
   font-size: 70%;
   display: table;
-  top: 700px;
-  left: calc(50% - 150px);
+
+  // left: calc(50% - 150px);
   transform: translate(-50%, -50%);
+  transform: scale(0.8);
+
+  @media screen and (max-width:768px) {
+    transform: scale(0.6);
+    left:-190px;
+  }
+
 }
+
+.grid:after {
+  padding-top:0px;
+  width: 100%;
+  position: absolute;
+  margin-top: 351px;
+  height: 191px;
+  margin-top: 310px;
+  height: 200px;
+  background: -webkit-linear-gradient(bottom, rgba(222, 232, 245, 0), rgba(222, 232, 245, 1)); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(top,  rgba(222, 232, 245, 0), rgba(222, 232, 245, 1)); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(top, rgba(222, 232, 245, 0), rgba(222, 232, 245, 1)); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to top, rgba(222, 232, 245, 0), rgba(222, 232, 245, 1)); /* Standard syntax (must be last) */
+    background-color:Red;
+}
+
 
 .hex-row {
   clear: left;
 }
+
+
