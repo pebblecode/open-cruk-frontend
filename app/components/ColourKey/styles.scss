@@ -1,0 +1,18 @@
+.colour-key {
+  width: 800px;
+
+  .key-part {
+    width: 400px;
+    height: 50px;
+  }
+
+  .key-left {
+    background: linear-gradient(to right, #B51B47, #E85B46);
+    float: left;
+  }
+
+  .key-right {
+    background: linear-gradient(to right, #E85B46, #FDFDBC);
+    float: left;
+  }
+}
