@@ -17,10 +17,16 @@ select {
   }
 }
 
-.select-test {
+.dropdown-style {
   position: relative;
   float: left;
   min-width: 380px;
+  padding-left:20px;
+
+  @media screen and (min-width:$bpoint-mid) {
+    margin-left: calc(50% - 40vw);
+  }
+
 
   select {
     border-radius:0px;

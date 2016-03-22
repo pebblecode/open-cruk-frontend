@@ -1,8 +1,10 @@
 .HexMap-container {
   width: 75%;
   float: left;
-  overflow: hidden;
+
   transition: 0.2s;
+
+
 }
 
 .HexMap-info-container {
@@ -26,14 +28,15 @@
   position: absolute;
   font-size: 70%;
   display: table;
-
-  // left: calc(50% - 150px);
+  left: calc(50% - 40vw);
   transform: translate(-50%, -50%);
   transform: scale(0.8);
-
-  @media screen and (max-width:768px) {
+  @media screen and (max-width:1150px) {
+    left: calc(35% - 40vw);
+  }
+  @media screen and (max-width:945px) {
     transform: scale(0.6);
-    left:-190px;
+    left: calc(55% - 65vw);
   }
 
 }

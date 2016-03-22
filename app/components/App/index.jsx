@@ -23,15 +23,17 @@ class App extends Component {
 
       <div className={'page__home'}>
         <Header/>
-        <div className="grid">
-          <h1 className="page-title">Local cancer stats for england</h1>
-          <p className="intro-text">Click on a region or search for it to explore its local data. View different data for the entire map by clicking the dropdown.</p>
-        </div>
+        <div className="grid-container">
+          <div className="grid">
+            <h1 className="page-title">Local cancer stats for england</h1>
+            <p className="intro-text">Click on a region or search for it to explore its local data. View different data for the entire map by clicking the dropdown.</p>
+          </div>
 
-        <div>
-          <HexDropdown/>
-          <HexMap/>
-          <HexHover/>
+          <div>
+            <HexDropdown/>
+            <HexMap/>
+            <HexHover/>
+          </div>
         </div>
       </div>
     );

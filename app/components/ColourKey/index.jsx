@@ -9,10 +9,10 @@ class ColourKey extends Component {
     const rightLabel = redIsHigh ? 'Low' : 'High';
     return (
       <div className='colour-key'>
-        <span style={{'position': 'absolute'}}>{leftLabel}</span>
+        <span className='left-label'>{leftLabel}</span>
         <div className='key-part key-left' />
         <div className='key-part key-right' />
-        <span style={{'position': 'absolute'}}>{rightLabel}</span>
+        <span className='right-label'>{rightLabel}</span>
       </div>
     );
   }

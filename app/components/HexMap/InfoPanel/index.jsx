@@ -49,7 +49,7 @@ class InfoPanel extends Component {
       }
 
       infoContents = (
-        <div className="grid">
+        <div className="">
           <h2>{this.props.ccgSelected.name}</h2>
           <div className={'topFiguresPanel'}>
             <div className={'topFigureBox'}>
@@ -84,7 +84,7 @@ class InfoPanel extends Component {
             </p>
           </div>
           <div className='cruk-logo'></div>
-          <div className='data-source' onClick={this.handleReset.bind(this)}>Click to view our data sources</div>
+
         </div>
       );
     } else {

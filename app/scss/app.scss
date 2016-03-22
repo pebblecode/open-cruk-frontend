@@ -12,10 +12,20 @@ html, body {
   /*background-image: url(molecules.svg);*/
   background:$bg-color;
   background-size: cover;
+  width:100%;
 }
 
 body {
     color:$ink;
+}
+
+
+.grid {
+  padding-left:20px;
+
+  @media screen and (min-width:$bpoint-mid) {
+    margin-left: calc(50% - 40vw);
+  }
 }
 
 
@@ -132,6 +142,7 @@ p {
   color: $ink;
   width: calc(100% - 400px);
   margin-bottom:2px;
+  margin-top:40px;
 
 
   @media screen and (max-width:768px) {
@@ -140,10 +151,10 @@ p {
 }
 
 .intro-text {
-  width:600px;
+  width:400px;
   margin-bottom:5px;
 
   @media screen and (max-width:768px) {
-    width:400px;
+    width:300px;
   }
 }

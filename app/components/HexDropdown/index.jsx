@@ -44,7 +44,7 @@ class HexDropdown extends Component {
     	rows.push(<option value={fields[i].val} key={i}>{fields[i].name}</option>)
     }
     return (
-    	<div className="select-test">
+    	<div className="dropdown-style">
         <select className={'HexDropdown'} onChange={this.handleChange.bind(this)}>
     		  {rows}
     	 </select>

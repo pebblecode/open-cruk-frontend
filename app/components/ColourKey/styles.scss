@@ -1,11 +1,23 @@
+@import 'variables';
+
 .colour-key {
   width: 800px;
   position:absolute;
-  bottom:0;
+  margin-top:640px;
+  font-family: $museo;
+  color: $ink;
+  margin-bottom:20px;
+  margin-left: calc(50% - 40vw);
+
+
+  @media screen and (max-width:$bpoint-mid) {
+    margin-top:520px;
+
+  }
 
   .key-part {
-    width: 230px;
-    height: 32px;
+    width: 130px;
+    height: 22px;
   }
 
   .key-left {
@@ -17,4 +29,15 @@
     background: linear-gradient(to right, #E85B46, #FDFDBC);
     float: left;
   }
+
+
 }
+  .left-label {
+    left:-40px;
+    position:absolute;
+  }
+
+  .right-label{
+    position:absolute;
+    margin-left:12px;
+  }
