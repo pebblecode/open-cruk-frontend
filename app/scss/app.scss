@@ -17,6 +17,7 @@ html, body {
 
 body {
     color:$ink;
+    background-color: $bg-color;
 }
 
 
@@ -145,8 +146,9 @@ p {
   margin-top:40px;
 
 
-  @media screen and (max-width:768px) {
+  @media screen and (max-width:830px) {
     font-size: $beta;
+    width:300px;
   }
 }
 

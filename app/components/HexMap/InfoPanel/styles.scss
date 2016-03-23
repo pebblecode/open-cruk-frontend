@@ -10,16 +10,23 @@
   max-width: 300px; // FIXME: temporary for development
   top: 0;
   right: 20px;
-
   margin-top:110px;
-
-
 
   @media screen and (max-width:$bpoint-mid) {
     width: 230px;
     max-width: 230px;
     min-width: 230px;
   }
+
+  @media screen and (max-width:$bpoint-sml) {
+    z-index: 10;
+    height: 100vh;
+    max-width:100%;
+    min-width:100%;
+    left:20px;
+    right:20px;
+  }
+
 }
 
 
