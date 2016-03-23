@@ -23,6 +23,7 @@ body {
 
 .grid {
   padding-left:20px;
+  padding-bottom:6px;
 
   @media screen and (min-width:$bpoint-mid) {
     margin-left: calc(50% - 40vw);
